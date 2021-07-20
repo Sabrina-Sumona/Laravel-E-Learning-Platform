@@ -13,15 +13,15 @@
 
 <body>
     <div class="account-page">
-      <div class="title">
-        <h2><a href="{{ url('/')}}"/>Happy E-Learning</h2>
-    </div>
         <div class="container">
             <div class="row">
                 <div class="col-2">
                     <img src="{{ asset('images/image1.png')}}" width="100%">
                 </div>
                 <div class="col-2">
+                  <div class="title">
+                    <h1>Happy E-Learning</h1>
+                  </div>
                     <div class="form-container">
                         <div class="form-btn">
                             <span onclick="register()">Register</span>
@@ -47,8 +47,12 @@
                     </div>
                 </div>
             </div>
+            <p class="copyright">Copyright 2021 - Sabrina Sumona</p>
         </div>
     </div>
+  </body>
+
+</html>
 
     <!-- javascript -->
 
@@ -83,7 +87,3 @@
 
         }
     </script>
-
-</body>
-
-</html>
