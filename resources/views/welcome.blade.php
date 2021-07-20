@@ -12,22 +12,14 @@
 </head>
 
 <body>
-  <div class="header">
-      <div class="navbar">
-        <div class="title">
-          <h2><a href="{{ url('/')}}">
-            Happy E-Learning<a href="{{ url('/')}}">
-          </a></h2>
-      </div>
-  </div>
-
-    <!-- Login Page -->
     <div class="account-page">
-      <hr><hr><hr><hr><hr><hr>
+      <div class="title">
+        <h2><a href="{{ url('/')}}"/>Happy E-Learning</h2>
+    </div>
         <div class="container">
             <div class="row">
                 <div class="col-2">
-                    <img src="{{ asset('images/image1.png')}}" width="70%">
+                    <img src="{{ asset('images/image1.png')}}" width="100%">
                 </div>
                 <div class="col-2">
                     <div class="form-container">
@@ -56,30 +48,8 @@
                 </div>
             </div>
         </div>
-        <hr><hr><hr><hr><hr><hr>
     </div>
 
-
-    <!-- Footer -->
-    <div class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="footer-col-2">
-                  <ul>
-                      <li>Facebook</li>
-                      <li>Twitter</li>
-                      <li>Instagram</li>
-                      <li>Youtube</li>
-                  </ul>
-                </div>
-                <div class="footer-col-2">
-                  <h3>Follow Us</h3>
-                </div>
-            </div>
-            <hr>
-            <p class="copyright">Copyright 2021 - Sabrina Sumona</p>
-        </div>
-    </div>
     <!-- javascript -->
 
     <script>
