@@ -16,3 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::view('/', 'welcome');
 Route::view('/login', 'login');
 Route::view('/registration', 'registration');
+
+Route::resource('/courses', \App\Http\Controllers\CourseController::class);
+Route::resource('/users', \App\Http\Controllers\UserController::class);

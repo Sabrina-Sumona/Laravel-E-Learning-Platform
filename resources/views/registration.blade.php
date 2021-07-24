@@ -25,12 +25,12 @@
             </div>
             <div>
                 <label for="roll">Your ID<span>*</span></label>
-                <input name="roll" id="roll" type="number" placeholder="Enter Your ID" onchange="checkUserID(this.value);" required>
+                <input name="roll" id="roll" type="text" placeholder="Enter Your ID" onchange="checkUserID(this.value);" required>
                 <small id="checkID"></small>
             </div>
             <div>
-                <label for="roll">Your Phone No.</label>
-                <input name="phone" id="phone" type="number" placeholder="Enter Your No." onchange="checkUserNo(this.value);">
+                <label for="mobile">Your Phone No.</label>
+                <input name="mobile" id="mobile" type="number" placeholder="Enter Your Mobile No." onchange="checkUserNo(this.value);">
                 <small id="checkNo"></small>
             </div>
             <div>
