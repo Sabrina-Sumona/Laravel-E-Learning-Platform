@@ -6,7 +6,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="{{ url('/css/registration.css') }}">
-  <title>Registration Form</title>
+  <title>Happy Learning Registration</title>
 </head>
 <body>
     <form method="POST" action="courselist" enctype="multipart/form-data">
@@ -37,6 +37,12 @@
                 <input name="email" id="email" type="text" placeholder="Enter Your Email" onchange="checkUsermail(this.value);" required>
                 <small id="checkmail"></small>
             </div>
+            <div id='optn'>
+              <label for="role">Your Role<span>*</span></label>
+              <br>
+              <input name="role" id="tchr" type="radio">Teacher
+              <input name="role" id="std" type="radio">Student
+            </div>
             <div>
                 <label for="password">Password<span>*</span></label>
                 <input name="password" id="password" type="password" placeholder="Enter A Password" onchange="checkUserpass(this.value);" required>
@@ -56,7 +62,7 @@
                  <p>Already have an account?
                     <br>
                     <a href="{{ url('/login') }}">
-                        <input  type="button" class="btn btn-primary" value="Sign In">
+                        <input  type="button" class="btn btn-primary" value="Sign In" style="margin: 15px;">
                     </a>
                 </p>
              </div>
