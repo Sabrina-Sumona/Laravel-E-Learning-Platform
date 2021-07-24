@@ -39,7 +39,15 @@
               </div>
           </div>
           <div class="row">
-            <p class="copyright">Copyright 2021 - Sabrina Sumona</p>
+            <p class="copyright">
+              Copyright 2021 - Happy Technologies Ltd.
+              <br>
+              info@happy.com | +8801912345678 (10AM-5PM)
+              <br>
+              House 45, Road 10/4, Block A, Niketan, Gulshan 1, Dhaka - 1212.
+              <br>
+              All Rights Reserved.
+            </p>
           </div>
         </div>
     </div>
