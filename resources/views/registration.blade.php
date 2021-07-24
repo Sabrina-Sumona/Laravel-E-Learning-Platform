@@ -10,7 +10,8 @@
   <title>Happy Learning Registration</title>
 </head>
 <body>
-    <form method="POST" action="courselist" enctype="multipart/form-data">
+    <form method="POST" action="/users" enctype="multipart/form-data">
+        @csrf
         <div class="container reg">
             <h2>Registration Form</h2>
             <hr>

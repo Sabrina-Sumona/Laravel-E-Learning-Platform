@@ -18,7 +18,8 @@
     <div class="logo">
 
     </div>
-    <form method="POST" enctype="multipart/form-data">
+    <form enctype="multipart/form-data" method="GET" action="/users">
+        @csrf
         <div class="box bg-img">
             <div class="content">
                 <h2>Log<span> In</span></h2>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class UserController extends Controller
 {
@@ -11,9 +12,18 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-      return "Users:";
+      $uName= $request->has('uname')?$request->get('uname'):'';
+      $pass= $request->has('password')?$request->get('password'):'';
+
+      $userInfo= User::where('uname','=', $uName)->where('password', '=', $pass)->first();
+
+      if(isset($userInfo)&& $userInfo!=null){
+       return redirect('/courses');
+      } else{
+       return redirect()->back();
+      }
     }
 
     /**
@@ -34,7 +44,18 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      // return $request->all();
+      User::insert([
+          'name'=>$request->has('name')? $request->get('name'):'',
+          'uname'=>$request->has('uname')? $request->get('uname'):'',
+          'roll'=>$request->has('roll')? $request->get('roll'):'',
+          'mobile'=>$request->has('mobile')? $request->get('mobile'):'',
+          'email'=>$request->has('email')? $request->get('email'):'',
+          'password'=>$request->has('password')? $request->get('password'):'',
+          'role'=>$request->has('role')? $request->get('role'):'',
+      ]);
+
+      return redirect('/courses');
     }
 
     /**
