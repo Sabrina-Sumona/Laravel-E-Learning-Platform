@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: radial-gradient(#ffff,#2774C4);
+    color: #d0d0d0;
+}
+
+.box {
+    background-color: #286090;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 350px;
+    height: 470px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 5px 8px 5px rgba(0, 0, 0, 0.3);
+}
+
+.bg-img {
+    background-position: center;
+    background-size: cover;
+}
+
+.content {
+    text-align: center;
+}
+
+.content h2 {
+    padding: 15px 0px 15px;
+    font-size: 2em;
+    color: aliceblue;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.user-input {
+    position: relative;
+}
+
+.user-input i {
+    position: absolute;
+    right: 4px;
+    top: 5px;
+    padding: 12px;
+    color: #848484;
+    transition: 0.3s;
+}
+
+.pass-input {
+    position: relative;
+}
+
+.pass-input i {
+    position: absolute;
+    right: 4px;
+    top: 5px;
+    padding: 12px;
+    color: #848484;
+    transition: 0.3s;
+}
+
+.login-input {
+    color: white;
+    border-radius: 2px;
+    width: 300px;
+    height: 44px;
+    border: none;
+    padding: 15px 20px;
+    background-color: rgba(65, 65, 65, 0.5);
+    margin-bottom: 24px;
+}
+
+.login-input:focus {
+    outline: none;
+    border-bottom: 2px solid #06ff8c;
+}
+
+.login-input:focus:invalid {
+    border-bottom: 2px solid #ffce00;
+}
+
+.login-btn {
+    font-size: 16px;
+    font-weight: 700;
+    width: 240px;
+    border-radius: 44px;
+    padding: 12px;
+    background-color:#459C4E;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 32px;
+}
+
+span {
+    color:white;
+}
+
+.new-account a {
+    color: #31B0D5;
+    font-weight: 400;
+}
+
+.f-pass a {
+    color: #f7f597;
+    text-decoration: none;
+}
+
+#hide-1 {
+    display: none;
+}
+
+.logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: auto;
+    padding: 20px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-img {
+    position: relative;
+    width: 78px;
+    height: auto;
+}

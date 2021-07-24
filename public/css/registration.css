@@ -1,0 +1,54 @@
+* {box-sizing: border-box}
+body{
+    background: radial-gradient(#ffff,#2774C4);
+}
+/* Add padding to containers */
+.container {
+    padding: 30px;
+    width: 60%;
+    position: relative;
+    margin: auto;
+    margin-top: 15px;
+    background: #31B0D5;
+    border-radius: 3px;
+    opacity: 90%;
+    /* all: unset; */
+    /* color: red; */
+}
+/* Full-width input fields */
+input[type=text], input[type=password], input[type=number] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+    color: black;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+    color: black;
+}
+
+/* Add a blue text color to links */
+a {
+    color: dodgerblue;
+}
+
+p{
+    color: white;
+}
+
+span{
+    color: #ff1919;
+}
+
+h1{
+    text-align: center;
+}
+
+hr{
+    color: aliceblue;
+}
