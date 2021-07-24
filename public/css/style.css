@@ -7,26 +7,6 @@
 body{
     font-family: 'Helvetica', sans-serif;
 }
-
-.navbar
-{
-    display: flex;
-    align-items: center;
-    padding: 10px;
-}
-
-nav{
-    flex: 1;
-    text-align: right;
-}
-nav ul{
-    display: inline-block;
-    list-style-type: none;
-}
-nav ul li{
-    display: inline-block;
-    margin-right: 20px;
-}
 a{
     text-decoration: none;
     color: #555;
@@ -58,18 +38,6 @@ p{
     font-size: 50px;
     line-height: 60px;
     margin: 25px 0;
-}
-.btn{
-    display: inline-block;
-    background: #ff523b;
-    color: white;
-    padding: 8px 30px;
-    margin: 30px 0;
-    border-radius: 30px;
-    transition: background 0.5s;
-}
-.btn:hover{
-    background: #563434;
 }
 .header{
     background: radial-gradient(#ffff,#2774C4);

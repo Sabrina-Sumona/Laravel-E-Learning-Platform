@@ -4,50 +4,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy E-Learning</title>
+    <title>Happy Learning</title>
     <link rel="stylesheet" href="{{ url('/css/style.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
     <div class="account-page">
         <div class="container">
-            <div class="row">
-                <div class="col-2">
-                    <img src="{{ asset('images/image1.png')}}" width="100%">
-                </div>
-                <div class="col-2">
-                  <div class="title">
-                    <h1>Happy E-Learning</h1>
-                  </div>
-                    <div class="form-container">
-                        <div class="form-btn">
-                            <span onclick="register()">Register</span>
-                            <span onclick="login()">Login</span>
-                            <hr id="Indicator">
-                        </div>
-                        <form id="LoginForm" action="/users" method="GET">
-                            @csrf
-                            <input type="email" name="email" placeholder="Email">
-                            <input type="password" name="pass" placeholder="Password">
-                            <button type="submit" class="btn">Login</button>
-                            <a href="">Forget Password</a>
-                        </form>
-
-                        <form id="RegForm" action="/users" method="POST">
-                            @csrf
-                            <input type="text" name="uname" placeholder="Username" required>
-                            <input type="email" name="email" placeholder="Email">
-                            <input type="text" name="mobile" placeholder="Mobile">
-                            <input type="password" name="pass" placeholder="Password" required>
-                            <button type="submit" class="btn">Register</button>
-                        </form>
-                    </div>
-                </div>
+          <div class="row">
+            <div class="col-2">
+              <div class="title">
+                <h1>Happy Learning</h1>
+              </div>
             </div>
-            <p class="copyright">Copyright 2021 - Sabrina Sumona</p>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <a href="login.php">
+                  <input  type="button" class="btn btn-primary pull-right" value="Login">
+              </a>
+            </div>
+            <div class="col-sm-6">
+                <a href="registration.php">
+                    <input  type="button" class="btn btn-info pull-left" value="Register">
+                </a>
+            </div>
+          </div>
+          <div class="row">
+              <div class="col-2">
+                  <img src="{{ asset('images/image1.png')}}" width="100%">
+              </div>
+          </div>
+            <div class="row">
+              <p class="copyright">Copyright 2021 - Sabrina Sumona</p>
+            </div>
         </div>
     </div>
   </body>
