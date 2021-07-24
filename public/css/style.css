@@ -6,6 +6,8 @@
 
 body{
     font-family: 'Helvetica', sans-serif;
+    background: radial-gradient(#ffff,#2774C4);
+    overflow: hidden;
 }
 
 a{
@@ -31,6 +33,11 @@ p{
     justify-content: space-around;
 }
 
+
+.row .col-6{
+    position: relative;
+}
+
 .col-2{
     flex-basis: 50%;
     min-width: 300px;
@@ -38,13 +45,14 @@ p{
 
 .col-2 img{
     max-width: 100%;
-    padding: 50px 0;
+    padding: 5px 0;
+    position: relative;
 }
 
 .col-2 h1{
     font-size: 50px;
     line-height: 60px;
-    margin: 25px 0;
+    margin: 10px 0;
 }
 
 .title{
@@ -58,16 +66,11 @@ p{
 
 .copyright{
     text-align: center;
+    bottom:0;
 }
 
 input:focus{
     outline: none;
-}
-
-/* Account page */
-.account-page{
-    padding:0;
-    background: radial-gradient(#ffff,#2774C4);
 }
 
 /* Media query for 600 screen size */
@@ -76,7 +79,8 @@ input:focus{
     .row{
         text-align: center;
     }
-    .col-2{
+    .col-2, .col-6{
         flex-basis: 100%;
+        padding: 10px
     }
 }

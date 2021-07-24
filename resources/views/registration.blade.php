@@ -11,7 +11,7 @@
 <body>
     <form method="POST" action="courselist" enctype="multipart/form-data">
         <div class="container reg">
-            <h1>Registration Form</h1>
+            <h2>Registration Form</h2>
             <hr>
             <div>
                 <label for="name">Your Name<span>*</span></label>

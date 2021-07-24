@@ -139,3 +139,15 @@ span {
     width: 78px;
     height: auto;
 }
+
+/* Media query for 600 screen size */
+@media only screen and (max-width: 600px){
+
+    .content{
+        text-align: center;
+    }
+    .forms{
+        flex-basis: 100%;
+        padding: 10px
+    }
+}
