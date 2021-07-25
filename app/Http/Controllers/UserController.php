@@ -52,7 +52,8 @@ class UserController extends Controller
           'mobile'=>$request->has('mobile')? $request->get('mobile'):'',
           'email'=>$request->has('email')? $request->get('email'):'',
           'password'=>$request->has('password')? $request->get('password'):'',
-          'role'=>$request->has('role')? $request->get('role'):'',
+          'role'=>$request->has('role')? $request->input('role'):'',
+          'remember_token'=>$request->has('yes')? $request->get('yes'):'',
       ]);
 
       return redirect('/courses');

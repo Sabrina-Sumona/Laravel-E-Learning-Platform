@@ -42,8 +42,8 @@
             <div id='optn'>
               <label for="role">Your Role<span>*</span></label>
               <br>
-              <input name="role" id="tchr" type="radio">Teacher
-              <input name="role" id="std" type="radio">Student
+              <input name="role" id="tchr" value="tchr" type="radio">Teacher
+              <input name="role" id="std" value="std" type="radio">Student
             </div>
             <div>
                 <label for="password">Password<span>*</span></label>
@@ -53,6 +53,9 @@
              <div>
                  <label for="rpassword">Password Confirmation<span>*</span></label>
                  <input name="rpassword" id="rpassword" type="password" placeholder="Repeat the Password" required>
+             </div>
+             <div id='optn'>
+               <input name="yes" id="yes" value="yes" type="checkbox">Remember Me
              </div>
              <div style="text-align: center">
                  <p><span>***</span>By creating an account you agree to our Terms & Conditions.</p>
