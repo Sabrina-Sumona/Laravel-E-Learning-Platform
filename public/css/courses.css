@@ -1,0 +1,20 @@
+body{
+    background: radial-gradient(#ffff,#2774C4);
+    margin:0;
+    height:100%;
+    overflow-x: hidden;
+}
+* {
+    box-sizing: border-box;
+}
+
+.card{
+    background-color: #130553;
+    padding: 20px;
+    margin-top: 20px;
+    color: whitesmoke;
+    border: solid rgb(0, 162, 255);
+    text-align: center;
+    background: radial-gradient(#2774C4,#264462);
+    border-radius: 3px;
+}
