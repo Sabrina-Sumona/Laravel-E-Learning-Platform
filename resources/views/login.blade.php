@@ -23,6 +23,11 @@
         <div class="box bg-img">
             <div class="content">
                 <h2>Log<span> In</span></h2>
+                @if(session()->has('failure'))
+                    <div class="alert-danger" style="padding: 5px;">
+                        {{ session()->get('failure') }}
+                    </div>
+                @endif
                 <hr>
                 <div class="forms">
                     <div class="user-input">

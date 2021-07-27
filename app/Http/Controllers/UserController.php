@@ -22,7 +22,7 @@ class UserController extends Controller
       if(isset($userInfo)&& $userInfo!=null){
        return redirect('/courses');
       } else{
-       return redirect()->back();
+       return redirect()->back()->with('failure', 'Username or password is not matched!!');
       }
     }
 
