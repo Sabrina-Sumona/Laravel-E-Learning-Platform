@@ -53,7 +53,7 @@ class UserController extends Controller
           'email'=>$request->has('email')? $request->get('email'):'',
           'password'=>$request->has('password')? $request->get('password'):'',
           'role'=>$request->has('role')? $request->input('role'):'',
-          'remember_token'=>$request->has('yes')? $request->get('yes'):'',
+          'rememberToken'=>$request->has('yes')? $request->get('yes'):'',
       ]);
 
       return redirect('/courses');
