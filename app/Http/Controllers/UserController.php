@@ -20,7 +20,9 @@ class UserController extends Controller
       $userInfo= User::where('uname','=', $uName)->where('password', '=', $pass)->first();
 
       if(isset($userInfo)&& $userInfo!=null){
-       return redirect('/courses');
+       // return redirect('/courses');
+       $course_controller= new CourseController();
+        return $course_controller->index();
       } else{
        return redirect()->back()->with('failure', 'Username or password is not matched!!');
       }

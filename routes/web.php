@@ -14,8 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/', 'welcome');
-Route::view('/login', 'login');
+// Route::view('/login', 'login')->name('log');
+Route::view('/login', 'login')->name('login');
 Route::view('/registration', 'registration');
 
-Route::resource('/courses', \App\Http\Controllers\CourseController::class);
+Route::resource('/courses', \App\Http\Controllers\CourseController::class)->middleware('auth');
 Route::resource('/users', \App\Http\Controllers\UserController::class);
