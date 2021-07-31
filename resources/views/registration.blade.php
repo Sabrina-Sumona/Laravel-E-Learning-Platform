@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="{{ url('/css/registration.css') }}">
   <title>Happy Learning Registration</title>
 </head>
@@ -14,6 +15,11 @@
         @csrf
         <div class="container reg">
             <h2>Registration Form</h2>
+            @if(session()->has('error'))
+                <div class="alert-warning" style="padding: 5px; text-align: center">
+                    {{ session()->get('error') }}
+                </div>
+            @endif
             <hr>
             <div>
                 <label for="name">Your Name<span>*</span></label>

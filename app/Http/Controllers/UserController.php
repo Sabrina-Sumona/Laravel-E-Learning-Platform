@@ -7,6 +7,9 @@ use App\Models\User;
 
 class UserController extends Controller
 {
+  public function __construct(){
+        $this->middleware('checkuser')->only('store');
+    }
     /**
      * Display a listing of the resource.
      *
