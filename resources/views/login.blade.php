@@ -48,7 +48,7 @@
                 <br>
 
                 <p class="f-pass">
-                    <a href="#">Forgot password?</a>
+                    <a href="http://localhost:8000/api/send-email?email=snsbauet04@gmail.com">Forgot password?</a>
                 </p>
 
             </div>
