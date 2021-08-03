@@ -18,7 +18,7 @@ class UserController extends Controller
     public function index(Request $request)
     {
       $uName= $request->has('uname')?$request->get('uname'):'';
-      $pass= $request->has('password')?$request->get('password'):'';
+      $pass= $request->has('password')? md5($request->get('password')):'';
 
       $userInfo= User::where('uname','=', $uName)->where('password', '=', $pass)->first();
 
@@ -56,7 +56,7 @@ class UserController extends Controller
           'roll'=>$request->has('roll')? $request->get('roll'):'',
           'mobile'=>$request->has('mobile')? $request->get('mobile'):'',
           'email'=>$request->has('email')? $request->get('email'):'',
-          'password'=>$request->has('password')? $request->get('password'):'',
+          'password'=>$request->has('password')? md5($request->get('password')):'',
           'role'=>$request->has('role')? $request->input('role'):'',
           'rememberToken'=>$request->has('yes')? $request->get('yes'):'',
       ]);
