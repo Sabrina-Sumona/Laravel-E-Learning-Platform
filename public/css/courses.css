@@ -19,6 +19,54 @@ body{
     border-radius: 3px;
 }
 
+.footer{
+  padding: 10px;
+  margin-top: 30px;
+  box-shadow: 0px -6px 5px 0px rgba(0,0,0,0.5);
+  background: radial-gradient(#2774C4,#264462);
+  text-align: center;
+  color: white;
+}
+
+.header{
+  background: radial-gradient(#2774C4,#264462);
+  text-align:left;
+  color: white;
+  height: 70px;
+  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.45);
+  width: 100%;
+  padding: 10px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index:999;
+}
+
+.course-list{
+  padding-top: 70px;
+  padding-bottom: 10px;
+}
+
+.title {
+ float: left;
+ padding-left: 20px;
+}
+
+.title h4{
+ display: inline;
+ text-decoration: none;
+}
+.user{
+ float: right;
+ display: inline;
+ padding: 10px;
+}
+
+.user h4{
+  display: inline;
+  padding-right: 15px;
+}
+
 /* Media query for 600 screen size */
 @media only screen and (max-width: 600px){
 
@@ -27,6 +75,6 @@ body{
     }
     .col-sm-3{
         flex-basis: 100%;
-        padding: 10px
+        padding: 10px;
     }
 }
