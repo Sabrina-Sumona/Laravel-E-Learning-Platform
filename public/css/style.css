@@ -61,7 +61,9 @@ p{
     position: relative;
     line-height: 60px;
     color: #CDF5ED;
-
+    background: radial-gradient(#2774C4,#264462);
+    border-radius: 90px 5px;
+    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.45);
 }
 
 .copyright{

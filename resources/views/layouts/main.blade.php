@@ -1,28 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=10" >
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Happy Learning</title>
   <link rel="shortcut icon" type="images/png" href="images/logo.png" sizes="16x16">
   <link rel="stylesheet" href="{{ url('/css/courses.css') }}">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <style>
-      .box{
-          background: rgba(255,255,255,1);
-          padding: 10px 20px;
-          border-radius: 2px;
-          box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.4);
-      }
-  </style>
+  <link rel="stylesheet" href="{{ url('/css/sidebar.css') }}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 </head>
-<body>
-    @include('layouts.header')
+<body id="body-pd">
     <div class="main">
         <div class="container-fluid">
-            @yield('center')
+          @include('layouts.sidebar')
+          @yield('center')
         </div>
     </div>
-    @include('layouts.footer')
+    @stack('scripts')
 </body>
 </html>

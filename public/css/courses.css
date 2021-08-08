@@ -1,80 +1,94 @@
-body{
-    background: radial-gradient(#ffff,#2774C4);
-    margin:0;
-    height:100%;
-    overflow-x: hidden;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Kalam&display=swap');
+
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif
 }
 
-.card{
-    background-color: #130553;
-    padding: 20px;
-    margin-top: 20px;
-    color: whitesmoke;
-    border: solid rgb(0, 162, 255);
-    text-align: center;
+body {
+    background: radial-gradient(#ffff,#2774C4);
+}
+
+.container {
+    overflow: auto
+}
+
+.cards {
+    overflow: auto;
+    min-height: 550px
+}
+
+.card {
     background: radial-gradient(#2774C4,#264462);
-    border-radius: 3px;
+    min-width: 300px;
+    height: 380px;
+    border-radius: 10px;
+    box-shadow: -5px 5px 25px #0000009d;
+    padding: 20px;
+    border: none;
+    transition: all .3s ease-in-out
 }
 
-.footer{
-  padding: 10px;
-  margin-top: 30px;
-  box-shadow: 0px -6px 5px 0px rgba(0,0,0,0.5);
-  background: radial-gradient(#2774C4,#264462);
-  text-align: center;
-  color: white;
+.card .text-grey {
+    color: #ccc;
+    font-weight: 500
 }
 
-.header{
-  background: radial-gradient(#2774C4,#264462);
-  text-align:left;
-  color: white;
-  height: 70px;
-  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.45);
-  width: 100%;
-  padding: 10px;
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  z-index:999;
+.card .light-grey {
+    color: #aaa;
+    font-weight: 300
 }
 
-.course-list{
-  padding-top: 70px;
-  padding-bottom: 10px;
+.card .fs-5 {
+    font-size: 1.15rem !important
 }
 
-.title {
- float: left;
- padding-left: 20px;
+.card a {
+    color: #fff;
+    text-decoration: none
 }
 
-.title h4{
- display: inline;
- text-decoration: none;
-}
-.user{
- float: right;
- display: inline;
- padding: 10px;
+.card .profile img {
+    width: 60px;
+    height: 60px;
+    box-shadow: 0 5px 15px rgba(26, 25, 25, 0.329);
+    object-fit: cover;
+    border-radius: 50%
 }
 
-.user h4{
-  display: inline;
-  padding-right: 15px;
+.card:not(:first-child) {
+    margin-left: -8rem
 }
 
-/* Media query for 600 screen size */
-@media only screen and (max-width: 600px){
+.cards::-webkit-scrollbar {
+    height: 10px
+}
 
-    .row{
-        text-align: center;
-    }
-    .col-sm-3{
-        flex-basis: 100%;
-        padding: 10px;
-    }
+.cards::-webkit-scrollbar-track {
+    background: inherit
+}
+
+.cards::-webkit-scrollbar-thumb {
+    background-color: #3a3a3a;
+    background: linear-gradient(to right, #ff002b, #002fff);
+    border-radius: 10px
+}
+
+.card:hover,
+.card:focus-within {
+    transform: translateY(-1rem) rotateZ(5deg)
+}
+
+.card:hover~.card,
+.card:focus-within~.card {
+    transform: translateX(8rem)
+}
+
+.card .designation {
+    display: inline;
+    border-radius: 10px;
+    padding: 4px 10px;
+    border: 1px solid #ddd
 }
