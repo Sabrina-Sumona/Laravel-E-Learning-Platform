@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
           $table->string('password');
           $table->string('is_regular')->default('yes');
           $table->string('role')->default('std');
-          $table->string('rememberToken')->default('no');
+          $table->string('remember_token')->default('no');
           $table->timestamps();
         });
     }

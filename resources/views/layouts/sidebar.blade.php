@@ -36,9 +36,9 @@
         </a>
       </div>
     </div>
-    <a href="/" class="nav_link">
+    <a href="{{route('logout')}}" class="nav_link">
       <i class='bx bx-log-out nav_icon'></i>
-      <span class="nav_name">SignOut</span>
+      <span class="nav_name">LogOut</span>
     </a>
   </nav>
 </div>
@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   showNavbar('header-toggle','nav-bar','body-pd','header')
 
-  /*===== LINK ACTIVE =====*/
+  // link active
   const linkColor = document.querySelectorAll('.nav_link')
 
   function colorLink(){
@@ -80,7 +80,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
   }
   linkColor.forEach(l=> l.addEventListener('click', colorLink))
 
-  // Your code to run since DOM is loaded and ready
 });
 </script>
 @endpush

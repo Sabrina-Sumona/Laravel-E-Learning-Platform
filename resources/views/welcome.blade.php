@@ -23,12 +23,12 @@
     </div>
     <div class="row">
       <div class="col-6">
-        <a href="{{ url('/login') }}">
-            <input  type="button" class="btn btn-primary" value="Login">
+        <a href="{{route('login')}}">
+            <input  type="button" class="btn btn-primary" value="LogIn">
         </a>
       </div>
       <div class="col-6">
-          <a href="{{ url('/registration') }}">
+          <a href="{{route('register')}}">
               <input  type="button" class="btn btn-info" value="Register">
           </a>
       </div>

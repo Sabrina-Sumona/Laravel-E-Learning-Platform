@@ -3,8 +3,9 @@
 :root {
     --header-height: 3rem;
     --nav-width: 68px;
-    --first-color: #4723D9;
-    --first-color-light: #AFA5D9;
+    --first-color: #264462;
+    --first-color-light: #AEB3FF;
+    --second-color: #2774C4;
     --white-color: #F7F6FB;
     --body-font: 'Nunito', sans-serif;
     --normal-font-size: 1rem;
@@ -46,7 +47,7 @@ a {
 }
 
 .header_toggle {
-    color: #264462;
+    color: var(--first-color);
     font-size: 1.5rem;
     cursor: pointer
 }
@@ -70,7 +71,7 @@ a {
     left: -30%;
     width: var(--nav-width);
     height: 100vh;
-    background: radial-gradient(#2774C4,#264462);
+    background: radial-gradient(var(--second-color),var(--first-color));
     padding: .5rem 1rem 0 0;
     transition: .5s;
     z-index: var(--z-fixed)

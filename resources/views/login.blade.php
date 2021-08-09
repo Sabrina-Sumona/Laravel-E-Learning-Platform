@@ -18,33 +18,48 @@
     <div class="logo">
 
     </div>
-    <form enctype="multipart/form-data" method="GET" action="/users">
+    <form enctype="multipart/form-data" method="POST" action= "{{route('saveLogin')}}">
         @csrf
         <div class="box bg-img">
             <div class="content">
                 <h2>Log<span> In</span></h2>
-                @if(session()->has('failure'))
-                    <div class="alert-danger" style="padding: 5px;">
-                        {{ session()->get('failure') }}
-                    </div>
-                @endif
+                @error('uname')
+                <span class="invalid-feedback alert-danger" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+                @error('password')
+                <span class="invalid-feedback alert-danger" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
                 <hr>
                 <div class="forms">
                     <div class="user-input">
-                        <input name="uname" type="text" class="login-input" placeholder="Username" id="name" required/>
+                        <input name="uname" type="text" class="login-input @error('uname') is-invalid @enderror" placeholder="Username" id="name" value="{{ old('uname') }}" required/>
                         <i class="fas fa-user"></i>
                     </div>
                     <div class="pass-input">
-                        <input name="password" type="password" class="login-input" placeholder="Password" id="my-password" required/ >
+                        <input name="password" type="password" class="login-input @error('password') is-invalid @enderror" placeholder="Password" id="my-password" required/ >
                         <span class="eye" onclick="myFunction()">
                           <i id="hide-1" class="fas fa-eye-slash"></i>
                           <i id="hide-2" class="fas fa-eye"></i>
                         </span>
                     </div>
                 </div>
+                <div class="form-group row">
+                    <div class="col-md-6 offset-md-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="remember_token" id="remember_token" {{ old('remember_token') ? 'checked' : '' }}>
 
+                            <label class="form-check-label" for="remember_token">
+                                {{ __('Remember Me') }}
+                            </label>
+                        </div>
+                    </div>
+                </div>
                 <button class="login-btn" type="submit" name="submit">Sign In</button>
-                <p class="new-account">Not a user? <a href="{{ url('/registration') }}">Sign Up now!</a></p>
+                <p class="new-account">Not a user? <a href="{{route('register')}}">Sign Up now!</a></p>
                 <br>
 
                 <p class="f-pass">

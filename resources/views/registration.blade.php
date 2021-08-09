@@ -11,12 +11,12 @@
   <title>Happy Learning Registration</title>
 </head>
 <body>
-    <form method="POST" action="/users" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
         @csrf
         <div class="container reg">
             <h2>Registration Form</h2>
             @if(session()->has('error'))
-                <div class="alert-warning" style="padding: 5px; text-align: center">
+                <div class="alert-danger" style="padding: 5px; text-align: center">
                     {{ session()->get('error') }}
                 </div>
             @endif
