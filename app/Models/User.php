@@ -22,6 +22,7 @@ class User extends Authenticatable
       'roll',
       'mobile',
       'email',
+      'image',
       'password',
       'is_regular',
       'role',

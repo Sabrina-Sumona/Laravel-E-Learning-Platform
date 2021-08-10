@@ -1,0 +1,65 @@
+.button-image{
+   position:relative;
+   padding-top: 20px;
+}
+
+.button-image .btn{
+   position:absolute;
+   top:50%;
+   left:50%;
+   transform: translate(-50%, -50%);
+   -ms-transform: translate(-50%, -50%);
+   font-size: 16px;
+   border: none;
+   cursor: pointer;
+   border-radius: 5px;
+   display: none;
+}
+
+.button-image img{
+   border: 2px solid #264462;
+   height: 200px;
+   width: 200px;
+}
+
+.button-image .btn:hover{
+   background-color: white;
+   color: #264462;
+}
+
+.img-circle{
+  border-radius: 50%;
+}
+
+td{
+  color: white;
+}
+
+table{
+    background: radial-gradient(#2774C4,#264462);
+    box-shadow: -5px 5px 25px #0000009d;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.modal-header{
+      background: radial-gradient(#2774C4,#264462);
+      color: white;
+}
+
+.modal-body, .modal-footer{
+    background: #F7F6FB;
+}
+
+.close{
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+/* Media query for 600 screen size */
+@media only screen and (max-width: 600px){
+    table, thead, tbody, th, td, tr {
+		display: block;
+    text-align: center;
+	}
+}

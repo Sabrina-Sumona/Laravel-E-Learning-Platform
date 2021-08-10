@@ -1,20 +1,20 @@
 <header class="header" id="header">
   <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
-  <div class="header_img"> <img src="/images/user.png" alt="user"> </div>
+  <div class="header_img"> <img src="{{asset(Auth::user()->image?Auth::user()->image:'/images/no_user.png')}}" alt="user"></div>
 </header>
 <div class="l-navbar" id="nav-bar">
   <nav class="nav">
     <div>
-      <a href="#" class="nav_logo">
+      <a href="{{route('home')}}" class="nav_logo">
         <img src="images/logo.png" alt="logo"  width="30px" height="30px">
         <span class="nav_logo-name">Happy Learning</span>
       </a>
       <div class="nav_list">
-        <a href="#" class="nav_link active">
+        <a href="{{route('courses')}}" class="nav_link {{ request()->routeIs('courses') ? 'active' : '' }} {{ request()->routeIs('home') ? 'active' : '' }}">
           <i class='bx bx-grid-alt nav_icon'></i>
           <span class="nav_name">Courses</span>
         </a>
-        <a href="#" class="nav_link">
+        <a href="{{route('profile.index')}}" class="nav_link {{ request()->routeIs('profile*') ? 'active' : '' }}">
           <i class='bx bx-user nav_icon'></i>
           <span class="nav_name">Profile</span>
         </a>

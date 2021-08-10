@@ -45,4 +45,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware'=> 'auth'], function(){
     Route::get('/courses', 'CourseController@index')->name('courses');
+    Route::resource('/profile', ProfileController::class);
+    Route::post('/profile/edit', 'ProfileController@edit')->name('profile.edit');
 });

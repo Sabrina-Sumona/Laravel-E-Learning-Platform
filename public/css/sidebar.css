@@ -28,7 +28,7 @@ body {
 }
 
 a {
-    text-decoration: none
+    text-decoration: none !important;
 }
 
 .header {
@@ -71,7 +71,7 @@ a {
     left: -30%;
     width: var(--nav-width);
     height: 100vh;
-    background: radial-gradient(var(--second-color),var(--first-color));
+    background-color: var(--first-color);
     padding: .5rem 1rem 0 0;
     transition: .5s;
     z-index: var(--z-fixed)
