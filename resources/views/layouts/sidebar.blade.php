@@ -10,7 +10,7 @@
         <span class="nav_logo-name">Happy Learning</span>
       </a>
       <div class="nav_list">
-        <a href="{{route('courses')}}" class="nav_link {{ request()->routeIs('courses') ? 'active' : '' }} {{ request()->routeIs('home') ? 'active' : '' }}">
+        <a href="{{route('courses.index')}}" class="nav_link {{ request()->routeIs('courses') ? 'active' : '' }} {{ request()->routeIs('home') ? 'active' : '' }}">
           <i class='bx bx-grid-alt nav_icon'></i>
           <span class="nav_name">Courses</span>
         </a>

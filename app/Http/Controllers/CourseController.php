@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Course;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class CourseController extends Controller
 {
@@ -15,7 +17,8 @@ class CourseController extends Controller
      */
     public function index()
     {
-      return view('courses');
+      $courses= Course::paginate(12);
+      return view('courses', compact('courses'));
     }
 
     /**
@@ -83,4 +86,18 @@ class CourseController extends Controller
     {
         //
     }
+
+    public function addCourse(Request $request){
+      // dd($request);
+      DB::table('courses')->insert([
+        'course_code' => $request->get('course_code') ?? '',
+        'course_title' => $request->get('course_title') ?? '',
+        'credit_hours' => $request->get('credit_hours') ?? '',
+        'course_teacher' => $request->get('course_teacher') ?? '',
+        'course_teacher_image' => $request->get('course_teacher_image') ?? '',
+      ]);
+
+      return back()->with('success', 'New Course Successfully Added!');
+    }
+
 }

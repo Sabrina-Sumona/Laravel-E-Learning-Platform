@@ -15,6 +15,7 @@ class Course extends Model
           'course_title',
           'credit_hours',
           'course_teacher',
+          'course_teacher_image',
           'total_std',
        ];
 }

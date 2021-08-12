@@ -44,7 +44,8 @@ Route::get('email/resend', 'Auth\VerificationController@resend')->name('verifica
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware'=> 'auth'], function(){
-    Route::get('/courses', 'CourseController@index')->name('courses');
+    Route::resource('/courses', CourseController::class);
     Route::resource('/profile', ProfileController::class);
     Route::post('/profile/edit', 'ProfileController@edit')->name('profile.edit');
+    Route::post('/courses/add_course', 'CourseController@addCourse')->name('add_course');
 });
