@@ -80,8 +80,9 @@ class RegisterController extends Controller
     }
 
     public function register(Request $request){
-        $userInfo= array();
+      $userInfo= array();
 
+      if($request->get('password')===$request->get('rpassword')) {
         $userInfo['name']=$request->has('name')? $request->get('name'):'';
         $userInfo['uname']=$request->has('uname')? $request->get('uname'):'';
         $userInfo['roll']=$request->has('roll')? $request->get('roll'):'';
@@ -95,8 +96,9 @@ class RegisterController extends Controller
 
         Auth::loginUsingId($user->id);
 
-        return redirect()->route('courses');
-
-
+        return redirect()->route('courses.index');
+      } else {
+        return back()->with('failure', 'Password confirmation failed!!');
+      }
     }
 }

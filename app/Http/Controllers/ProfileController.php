@@ -62,7 +62,7 @@ class ProfileController extends Controller
         if($request->hasFile('image')){
           $file= $request->file('image');
           $extension= $file->getClientOriginalExtension();
-          $fileName= 'image_' . time() . '.' . $extension;
+          $fileName= 'image_' . Auth::user()->id . '.' . $extension;
           $location= '/images/user_'. Auth::user()->id. '/';
 
           $file->move(public_path().$location, $fileName);

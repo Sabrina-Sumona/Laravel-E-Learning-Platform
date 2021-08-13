@@ -20,6 +20,11 @@
                     {{ session()->get('error') }}
                 </div>
             @endif
+            @if(session()->has('failure'))
+                <div class="alert-danger" style="padding: 5px; text-align: center">
+                    {{ session()->get('failure') }}
+                </div>
+            @endif
             <hr>
             <div>
                 <label for="name">Your Name<span>*</span></label>

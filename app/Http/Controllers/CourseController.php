@@ -18,6 +18,7 @@ class CourseController extends Controller
     public function index()
     {
       $courses= Course::paginate(12);
+      // dd($courses);
       return view('courses', compact('courses'));
     }
 
@@ -97,7 +98,7 @@ class CourseController extends Controller
         'course_teacher_image' => $request->get('course_teacher_image') ?? '',
       ]);
 
-      return back()->with('success', 'New Course Successfully Added!');
+      return back()->with('success', 'New Course Added Successfully!');
     }
 
 }

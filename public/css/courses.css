@@ -124,3 +124,9 @@ body {
 .add_course .form-control:focus {
     border: 2px solid #fff
 }
+
+.pagination{
+  float: right;
+  padding: 10px;
+  margin: 10px;
+}

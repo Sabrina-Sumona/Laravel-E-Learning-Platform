@@ -25,6 +25,9 @@
         </div>
       @endforeach
     </div>
+    <div class"pagination">
+        {{$courses->links('vendor.pagination.bootstrap-4')}}
+    </div>
     @if(auth()->user()->role == 'tchr')
       @include('add_course')
     @endif
