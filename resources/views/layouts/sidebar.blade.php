@@ -10,25 +10,25 @@
         <span class="nav_logo-name">Happy Learning</span>
       </a>
       <div class="nav_list">
-        <a href="{{route('courses.index')}}" class="nav_link {{ request()->routeIs('courses') ? 'active' : '' }} {{ request()->routeIs('home') ? 'active' : '' }}">
-          <i class='bx bx-grid-alt nav_icon'></i>
+        <a href="{{route('courses.index')}}" class="nav_link {{ request()->routeIs('courses*') ? 'active' : '' }}">
+          <i class='bx bx-book nav_icon'></i>
           <span class="nav_name">Courses</span>
+        </a>
+        <a href="#" class="nav_link">
+          <i class='bx bx-chart nav_icon'></i>
+          <span class="nav_name">Dashboard</span>
         </a>
         <a href="{{route('profile.index')}}" class="nav_link {{ request()->routeIs('profile*') ? 'active' : '' }}">
           <i class='bx bx-user nav_icon'></i>
           <span class="nav_name">Profile</span>
         </a>
         <a href="#" class="nav_link">
-          <i class='bx bx-calculator nav_icon'></i>
-          <span class="nav_name">Fees</span>
-        </a>
-        <a href="#" class="nav_link">
-          <i class='bx bx-book nav_icon'></i>
+          <i class='bx bx-desktop nav_icon'></i>
           <span class="nav_name">LMS</span>
         </a>
         <a href="#" class="nav_link">
-          <i class='bx bx-time nav_icon'></i>
-          <span class="nav_name">Time-Table</span>
+          <i class='bx bx-bell nav_icon'></i>
+          <span class="nav_name">Notices</span>
         </a>
         <a href="#" class="nav_link">
           <i class='bx bx-message-square-detail nav_icon'></i>

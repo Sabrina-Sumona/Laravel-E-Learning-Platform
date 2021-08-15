@@ -67,12 +67,11 @@ class ProfileController extends Controller
 
           $file->move(public_path().$location, $fileName);
           $imageFinal= $location.$fileName;
+
+          User::where('id', auth()->user()->id)->update([
+              'image'=> $imageFinal
+          ]);
         }
-
-        User::where('id', auth()->user()->id)->update([
-            'image'=> $imageFinal
-        ]);
-
         return back();
     }
 

@@ -100,5 +100,4 @@ class CourseController extends Controller
 
       return back()->with('success', 'New Course Added Successfully!');
     }
-
 }

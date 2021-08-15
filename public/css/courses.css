@@ -100,8 +100,10 @@ body {
 .add_course {
     background: radial-gradient(#2774C4,#264462);
     padding: 30px 50px;
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 15px
+    color: #DFE7FF;
+    font-size: 15px;
+    border-radius: 10px;
+    box-shadow: -5px 5px 25px #0000009d;
 }
 
 .heading {
@@ -111,8 +113,8 @@ body {
 }
 
 .add_course .form-control {
-    border: 2px solid rgba(255, 255, 255, 0.5);
-    background: none;
+    border: 2px solid #708598;
+    background: #DFE7FF;
     color: #fff
 }
 
@@ -122,11 +124,10 @@ body {
 }
 
 .add_course .form-control:focus {
-    border: 2px solid #fff
+    border: 2px solid #264462
 }
 
 .pagination{
   float: right;
-  padding: 10px;
-  margin: 10px;
+  margin-top: 10px;
 }
