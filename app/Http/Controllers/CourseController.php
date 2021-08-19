@@ -88,7 +88,7 @@ class CourseController extends Controller
         //
     }
 
-    public function addCourse(Request $request){
+    public function addCourse(Request $request) {
       // dd($request);
       DB::table('courses')->insert([
         'course_code' => $request->get('course_code') ?? '',
@@ -96,8 +96,40 @@ class CourseController extends Controller
         'credit_hours' => $request->get('credit_hours') ?? '',
         'course_teacher' => $request->get('course_teacher') ?? '',
         'course_teacher_image' => $request->get('course_teacher_image') ?? '',
+        'join_code' => $request->get('join_code') ?? '',
       ]);
 
       return back()->with('success', 'New Course Added Successfully!');
+    }
+
+    public function joinCourse(Request $request) {
+      // dd($request);
+      $cCode= $request->has('course_code')?$request->get('course_code'):'';
+      $jCode= $request->has('join_code')?$request->get('join_code'):'';
+
+      $joinInfo= Course::where('course_code','=', $cCode)->where('join_code', '=', $jCode)->first();
+
+      if(isset($joinInfo) && $joinInfo!=null) {
+        $jstd = $joinInfo->joined_students;
+        $jstd_array = json_decode($jstd);
+
+        if(in_array(auth()->user()->id, $jstd_array)) {
+
+          return redirect()->back()->with('warning', 'Joined Already!!');
+
+        } else {
+          $joinInfo->increment('total_students');
+          array_push($jstd_array, auth()->user()->id);
+          array_reverse($jstd_array);
+          $jstd= json_encode($jstd_array);
+
+          DB::table('courses')->where('course_code','=', $cCode)->update(['joined_students'=>$jstd]);
+
+          return redirect()->back()->with('success', 'Joined successfully!!');
+        }
+
+      } else {
+        return redirect()->back()->with('failure', 'Join code is not matched!!');
+      }
     }
 }

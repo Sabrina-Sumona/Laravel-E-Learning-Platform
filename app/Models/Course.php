@@ -16,6 +16,8 @@ class Course extends Model
           'credit_hours',
           'course_teacher',
           'course_teacher_image',
+          'join_code',
           'total_std',
+          'joined_students',
        ];
 }

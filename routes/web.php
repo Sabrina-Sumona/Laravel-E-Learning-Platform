@@ -48,4 +48,5 @@ Route::group(['middleware'=> 'auth'], function(){
     Route::resource('/profile', ProfileController::class);
     Route::post('/profile/edit', 'ProfileController@edit')->name('profile.edit');
     Route::post('/courses/add_course', 'CourseController@addCourse')->name('add_course');
+    Route::post('/courses/join_course', 'CourseController@joinCourse')->name('join_course');
 });

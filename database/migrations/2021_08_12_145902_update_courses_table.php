@@ -14,9 +14,11 @@ class UpdateCoursesTable extends Migration
     public function up()
     {
       Schema::table('courses', function (Blueprint $table){
-          $table->after('course_teacher', function ($table){      
+          $table->after('course_teacher', function ($table){
               $table->float('credit_hours')->change();
               $table->string('course_teacher_image');
+              $table->string('join_code');
+              $table->json('joined_students')->nullable();
           });
       });
     }
