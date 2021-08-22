@@ -99,6 +99,28 @@ class CourseController extends Controller
         'join_code' => $request->get('join_code') ?? '',
       ]);
 
+      $courseInfo= User::where('id','=', auth()->user()->id)->first();
+
+      $cCode = $request->get('course_code');
+      $cTitle = $request->get('course_title');
+      $cCredit = intval($request->get('credit_hours'));
+
+      $course = $courseInfo->courses;
+      $course_array = json_decode($course);
+
+      array_push($course_array, $cCode.": ".$cTitle." (".$cCredit." Credit)");
+      $course = json_encode($course_array);
+
+      DB::table('users')->where('id','=', auth()->user()->id)->update(['courses'=>$course]);
+
+      $course = $courseInfo->credit_hours;
+      $course_array = json_decode($course);
+
+      array_push($course_array, $cCredit);
+      $course = json_encode($course_array);
+
+      DB::table('users')->where('id','=', auth()->user()->id)->update(['credit_hours'=>$course]);
+
       return back()->with('success', 'New Course Added Successfully!');
     }
 
