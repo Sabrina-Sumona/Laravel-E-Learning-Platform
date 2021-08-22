@@ -14,7 +14,7 @@
           <i class='bx bx-book nav_icon'></i>
           <span class="nav_name">Courses</span>
         </a>
-        <a href="#" class="nav_link">
+        <a href="{{route('dashboard.index')}}" class="nav_link {{ request()->routeIs('dashboard*') ? 'active' : '' }}">
           <i class='bx bx-chart nav_icon'></i>
           <span class="nav_name">Dashboard</span>
         </a>

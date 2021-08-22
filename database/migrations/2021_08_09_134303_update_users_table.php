@@ -16,6 +16,8 @@ class UpdateUsersTable extends Migration
       Schema::table('users', function (Blueprint $table){
           $table->after('email', function ($table){
               $table->string('image');
+              $table->json('courses')->nullable();
+              $table->json('credit_hours')->nullable();
           });
       });
     }

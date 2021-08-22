@@ -120,10 +120,30 @@ class CourseController extends Controller
         } else {
           $joinInfo->increment('total_students');
           array_push($jstd_array, auth()->user()->id);
-          array_reverse($jstd_array);
           $jstd= json_encode($jstd_array);
 
           DB::table('courses')->where('course_code','=', $cCode)->update(['joined_students'=>$jstd]);
+
+          $courseInfo= User::where('id','=', auth()->user()->id)->first();
+
+          $cTitle = $joinInfo->course_title;
+          $cCredit = $joinInfo->credit_hours;
+
+          $course = $courseInfo->courses;
+          $course_array = json_decode($course);
+
+          array_push($course_array, $cCode.": ".$cTitle." (".$cCredit." Credit)");
+          $course = json_encode($course_array);
+
+          DB::table('users')->where('id','=', auth()->user()->id)->update(['courses'=>$course]);
+
+          $course = $courseInfo->credit_hours;
+          $course_array = json_decode($course);
+
+          array_push($course_array, $cCredit);
+          $course = json_encode($course_array);
+
+          DB::table('users')->where('id','=', auth()->user()->id)->update(['credit_hours'=>$course]);
 
           return redirect()->back()->with('success', 'Joined successfully!!');
         }

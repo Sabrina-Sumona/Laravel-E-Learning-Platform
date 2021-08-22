@@ -26,6 +26,8 @@ class User extends Authenticatable
       'password',
       'is_regular',
       'role',
+      'courses',
+      'credit_hours',
       'remember_token',
     ];
 

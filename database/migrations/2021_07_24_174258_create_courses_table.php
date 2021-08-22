@@ -19,7 +19,7 @@ class CreateCoursesTable extends Migration
             $table->string('course_title');
             $table->string('credit_hours');
             $table->string('course_teacher');
-            $table->integer('total_std');
+            $table->integer('total_students');
             $table->timestamps();
         });
     }
