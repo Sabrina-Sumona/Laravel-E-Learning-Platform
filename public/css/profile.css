@@ -17,7 +17,6 @@
 }
 
 .button-image img{
-  border: 2px solid #264462;
   height: 200px;
   width: 200px;
 }
@@ -44,6 +43,7 @@ table{
 
 .info, .info td{
   display: block;
+  border-style: none !important;
 }
 
 .modal-header{
@@ -60,9 +60,23 @@ table{
   padding-right: 2px;
 }
 
+.line{
+  display: none;
+}
+
 /* Media query for 600 screen size */
 @media only screen and (max-width: 600px){
   table, thead, tbody, th, td, tr {
+    display: block;
+    text-align: center;
+  }
+  td {
+    border-style: none !important;
+  }
+  th {
+    border-style: solid !important;
+  }
+  .line{
     display: block;
   }
 }

@@ -51,4 +51,5 @@ Route::group(['middleware'=> 'auth'], function(){
     Route::post('/courses/join_course', 'CourseController@joinCourse')->name('join_course');
     Route::resource('/dashboard', DashboardController::class);
     Route::post('/dashboard/show', 'DashboardController@show')->name('dashboard.show');
+    Route::resource('/lms', LmsController::class);
 });

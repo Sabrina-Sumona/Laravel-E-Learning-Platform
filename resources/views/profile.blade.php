@@ -23,21 +23,23 @@
         <table class="table table-responsive rounded border">
           <tbody>
             <tr>
-              <td><strong>User Name :</strong></td>
+              <td><strong>User :</strong></td>
               <td id="f_name">{{auth()->user()->uname}}</td>
               <td>
                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="setField('uname');">
                   Edit
                 </button>
+                <hr class="line">
               </td>
             </tr>
             <tr>
-              <td><strong>Phone No. :</strong></td>
-              <td id="f_name">{{auth()->user()->mobile}}</td>
+              <td><strong>Mobile :</strong></td>
+              <td id="f_mobile">{{auth()->user()->mobile}}</td>
               <td>
                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="setField('mobile');">
                   Edit
                 </button>
+                <hr class="line">
               </td>
             </tr>
             <tr>
