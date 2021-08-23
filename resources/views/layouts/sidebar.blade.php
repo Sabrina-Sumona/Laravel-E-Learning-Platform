@@ -22,7 +22,7 @@
           <i class='bx bx-user nav_icon'></i>
           <span class="nav_name">Profile</span>
         </a>
-        <a href="{{route('lms.index')}}" class="nav_link {{ request()->routeIs('lms*') ? 'active' : '' }}">
+        <a href="{{route('lms.index')}}" class="nav_link {{ request()->routeIs('lms*') ? 'active' : '' }} {{ request()->routeIs('classroom*') ? 'active' : '' }} {{ request()->routeIs('tasks*') ? 'active' : '' }} {{ request()->routeIs('exam*') ? 'active' : '' }}">
           <i class='bx bx-desktop nav_icon'></i>
           <span class="nav_name">LMS</span>
         </a>

@@ -53,21 +53,15 @@
             <tr>
               <th><h1>Courses</h1></th>
             </tr>
-            @if(auth()->user()->role == 'std')
             @foreach($courses as $course)
             <tr>
               <td>{{$course}}</td>
             </tr>
             @endforeach
+            @if(auth()->user()->role == 'std')
             <tr>
               <td><strong>Total: </strong> {{$Total_credits}} Credits</td>
             </tr>
-            @elseif(auth()->user()->role == 'tchr')
-            @foreach($courses as $course)
-            <tr>
-              <td>{{$course}}</td>
-            </tr>
-            @endforeach
             @endif
           </tbody>
         </table>
@@ -78,7 +72,7 @@
 </div>
 @if(auth()->user()->role == 'std')
 <div class="row">
-  <div class="container mt-5 col-md-6">
+  <div class="container mt-5 col-md-8">
     <div class="container mt-5">
       <div class="row">
         <div class="col-md-8 mx-auto info">

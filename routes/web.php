@@ -52,4 +52,5 @@ Route::group(['middleware'=> 'auth'], function(){
     Route::resource('/dashboard', DashboardController::class);
     Route::post('/dashboard/show', 'DashboardController@show')->name('dashboard.show');
     Route::resource('/lms', LmsController::class);
+    Route::resource('/classroom', ClassroomController::class);
 });
