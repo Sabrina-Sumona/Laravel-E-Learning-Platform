@@ -53,7 +53,7 @@
                 @csrf
                 <div class="row">
                   <div class="col-sm-4">
-                    <h5><label id="join_code" class="pull-right">Course code</label></h5>
+                    <h5><label id="course_code" class="pull-right">Course code</label></h5>
                   </div>
                   <div class="col-sm-8">
                     <input class="form-group" type="text" value="" id="course_code" name="course_code" required>

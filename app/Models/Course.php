@@ -19,5 +19,6 @@ class Course extends Model
           'join_code',
           'total_std',
           'joined_students',
+          'class_link',
        ];
 }

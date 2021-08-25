@@ -2,57 +2,64 @@
 
 @section('center')
 <div class="container mt-5">
-  <form action="{{route('profile.edit')}}" method="POST" enctype="multipart/form-data">
-    @csrf
-    <div class="text-center" onmouseover="showUploadButton();" onmouseout="hideUploadButton();">
-      <div class="form-group button-image">
-        <img class="img-circle" src="{{asset(Auth::user()->image?Auth::user()->image:'/images/no_user.png')}}">
-        <label onmouseover="showUploadButton();" class="btn btn-success image-upload" >
-          <input name="image" type="file" style="display: none;" required/> Upload
-        </label>
-        <br><br>
-      </div>
-      <div class="form-group">
-        <button class="image-upload btn btn-success" style="display: none;" type="submit">Save</button>
-      </div>
-    </div>
-  </form>
   <div class="container mt-5">
-    <div class="row">
-      <div class="col-md-8 mx-auto">
-        <table class="table table-responsive rounded border">
-          <tbody>
-            <tr>
-              <td><strong>User :</strong></td>
-              <td id="f_name">{{auth()->user()->uname}}</td>
-              <td>
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="setField('uname');">
-                  Edit
-                </button>
-                <hr class="line">
-              </td>
-            </tr>
-            <tr>
-              <td><strong>Mobile :</strong></td>
-              <td id="f_mobile">{{auth()->user()->mobile}}</td>
-              <td>
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="setField('mobile');">
-                  Edit
-                </button>
-                <hr class="line">
-              </td>
-            </tr>
-            <tr>
-              <td><strong>Email :</strong></td>
-              <td id="email">{{auth()->user()->email}}</td>
-              <td>
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="setField('email');">
-                  Edit
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+    @if(count($errors) > 0)
+    @foreach($errors->all() as $error)
+    <div class="alert alert-danger">{{ $error }}</div>
+    @endforeach
+    @endif
+    <form action="{{route('profile.edit')}}" method="POST" enctype="multipart/form-data">
+      @csrf
+      <div class="text-center" onmouseover="showUploadButton();" onmouseout="hideUploadButton();">
+        <div class="form-group button-image">
+          <img class="img-circle" src="{{asset(Auth::user()->image?Auth::user()->image:'/images/no_user.png')}}">
+          <label onmouseover="showUploadButton();" class="btn btn-success image-upload" >
+            <input name="image" type="file" style="display: none;" required/> Upload
+          </label>
+          <br><br>
+        </div>
+        <div class="form-group">
+          <button class="image-upload btn btn-success" style="display: none;" type="submit">Save</button>
+        </div>
+      </div>
+    </form>
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <table class="table table-responsive rounded border">
+            <tbody>
+              <tr>
+                <td><strong>User :</strong></td>
+                <td id="f_name">{{auth()->user()->uname}}</td>
+                <td>
+                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="setField('uname');">
+                    Edit
+                  </button>
+                  <hr class="line">
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Mobile :</strong></td>
+                <td id="f_mobile">{{auth()->user()->mobile}}</td>
+                <td>
+                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="setField('mobile');">
+                    Edit
+                  </button>
+                  <hr class="line">
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Email :</strong></td>
+                <td id="email">{{auth()->user()->email}}</td>
+                <td>
+                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="setField('email');">
+                    Edit
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
@@ -96,20 +103,20 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
-  function setField(field_name) {
-    $('#fld_name').html(field_name.charAt(0).toUpperCase()+field_name.substr(1).toLowerCase());
-    var field_value= $('#'+field_name).html();
+function setField(field_name) {
+  $('#fld_name').html(field_name.charAt(0).toUpperCase()+field_name.substr(1).toLowerCase());
+  var field_value= $('#'+field_name).html();
 
-    $('#fld_value').val(field_value);
-    $('#field').val(field_name);
-  }
+  $('#fld_value').val(field_value);
+  $('#field').val(field_name);
+}
 
-  function hideUploadButton() {
-    $('.image-upload').hide();
-  }
+function hideUploadButton() {
+  $('.image-upload').hide();
+}
 
-  function showUploadButton() {
-    $('.image-upload').show();
-  }
+function showUploadButton() {
+  $('.image-upload').show();
+}
 </script>
 @endpush
