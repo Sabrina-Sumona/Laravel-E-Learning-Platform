@@ -49,10 +49,10 @@ Route::group(['middleware'=> 'auth'], function(){
     Route::post('/profile/edit', 'ProfileController@edit')->name('profile.edit');
     Route::post('/courses/add_course', 'CourseController@addCourse')->name('add_course');
     Route::post('/courses/join_course', 'CourseController@joinCourse')->name('join_course');
-    Route::post('/courses/set_class', 'CourseController@setClass')->name('set_class');
-    Route::post('/courses/enter_class', 'CourseController@enterClass')->name('enter_class');
     Route::resource('/dashboard', DashboardController::class);
     Route::post('/dashboard/show', 'DashboardController@show')->name('dashboard.show');
     Route::resource('/lms', LmsController::class);
     Route::resource('/classroom', ClassroomController::class);
+    Route::post('/classroom/set_class', 'ClassroomController@setClass')->name('set_class');
+    Route::post('/classroom/enter_class', 'ClassroomController@enterClass')->name('enter_class');
 });

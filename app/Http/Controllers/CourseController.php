@@ -174,23 +174,4 @@ class CourseController extends Controller
       return redirect()->back()->with('failure', 'Course Code or Join code Invalid!!');
     }
   }
-
-  public function setClass(Request $request) {
-    $cCode= $request->has('course_code')?$request->get('course_code'):'';
-    $link= $request->has('class_link')?$request->get('class_link'):'';
-
-    $setInfo= Course::where('course_code','=', $cCode)->first();
-
-    if(isset($setInfo) && $setInfo!=null && isset($link) && $link!=null) {
-      DB::table('courses')->where('course_code','=', $cCode)->update(['class_link'=>$link]);
-
-      return back()->with('success', 'Class Link Set Successfully!!');
-    } else{
-      return back()->with('failure', 'Course Code or Class Link Invalid!!');
-    }
-  }
-
-  public function enterClass(Request $request) {
-
-  }
 }

@@ -6,6 +6,10 @@
   <div class="alert alert-success mt-5" style="text-align: center;">
     {{ session()->get('success') }}
   </div>
+  @elseif(session()->has('warning'))
+  <div class="alert alert-warning mt-5" style="text-align: center;">
+    {{ session()->get('warning') }}
+  </div>
   @elseif(session()->has('failure'))
   <div class="alert alert-danger mt-5" style="text-align: center;">
     {{ session()->get('failure') }}
@@ -20,9 +24,11 @@
             <tr>
               <td>{{$course}}</td>
               <td>
-                <a type="button" class="btn btn-success" href="#">
-                  Enter
-                </a>
+                <form action="{{route('enter_class')}}" method="POST">
+                    @csrf
+                    <input value="{{$course}}" name="course" hidden>
+                    <button type="submit" class="btn btn-success">Enter</button>
+                </form>
               </td>
               @if(auth()->user()->role == 'tchr')
               <td>
