@@ -119,4 +119,19 @@ class DashboardController extends Controller
       return back()->with('failure', 'Course Code or Drive Link Invalid!!');
     }
   }
+
+  public function viewMaterials(Request $request) {
+    $course = $request->get('course');
+    $cCode = substr($course, 0, strpos($course, ":"));
+
+    $enterInfo= Course::where('course_code','=', $cCode)->first();
+    if(isset($enterInfo) && $enterInfo!=null) {
+      $link = DB::table('courses')->where('course_code','=', $cCode)->pluck('drive_link');
+      if ($link[0]!=null) {
+        return redirect($link[0]);
+      } else{
+        return back()->with('warning', 'Materials Not Given Yet!');
+      }
+    }
+  }
 }

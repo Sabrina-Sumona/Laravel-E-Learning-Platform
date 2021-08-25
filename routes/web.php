@@ -53,6 +53,7 @@ Route::group(['middleware'=> 'auth'], function(){
 
     Route::resource('/dashboard', DashboardController::class);
     Route::post('/dashboard/add_materials', 'DashboardController@addMaterials')->name('add_materials');
+    Route::post('/dashboard/view_materials', 'DashboardController@viewMaterials')->name('view_materials');
 
     Route::resource('/lms', LmsController::class);
 

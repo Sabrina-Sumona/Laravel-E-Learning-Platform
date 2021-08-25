@@ -24,7 +24,7 @@
             <tr>
               <td>{{$course}}</td>
               <td>
-                <form action="{{route('enter_class')}}" method="POST">
+                <form action="{{route('enter_class')}}" method="POST" target="_blank">
                     @csrf
                     <input value="{{$course}}" name="course" hidden>
                     <button type="submit" class="btn btn-success">Enter</button>
