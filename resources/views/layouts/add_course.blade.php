@@ -9,7 +9,7 @@
           <input type="text" class="form-control btn-block" id='course_code' name='course_code' placeholder='Enter the course code' required>
         </div>
         <div class="form-group">
-          <label for='course_code'>Course Title</label>
+          <label for='course_title'>Course Title</label>
           <input type="text" class="form-control btn-block" id='course_title' name='course_title' placeholder='Enter the course title' required>
         </div>
         <div class="form-group">

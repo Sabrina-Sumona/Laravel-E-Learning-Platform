@@ -20,6 +20,7 @@ class UpdateCoursesTable extends Migration
               $table->string('join_code');
               $table->json('joined_students')->nullable();
               $table->string('class_link')->nullable();
+              $table->string('drive_link')->nullable();
           });
       });
     }

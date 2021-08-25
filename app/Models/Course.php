@@ -20,5 +20,6 @@ class Course extends Model
           'total_std',
           'joined_students',
           'class_link',
+          'drive_link',
        ];
 }

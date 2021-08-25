@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Course;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -33,7 +34,7 @@ class DashboardController extends Controller
       return view('dashboard', compact('courses', 'Total_credits'));
     }
     else{
-      
+
       return view('dashboard', compact('courses'));
     }
   }
@@ -102,5 +103,20 @@ class DashboardController extends Controller
   public function destroy($id)
   {
     //
+  }
+
+  public function addMaterials(Request $request) {
+    $cCode= $request->has('course_code')?$request->get('course_code'):'';
+    $link= $request->has('drive_link')?$request->get('drive_link'):'';
+
+    $setInfo= Course::where('course_code','=', $cCode)->first();
+
+    if(isset($setInfo) && $setInfo!=null && isset($link) && $link!=null) {
+      DB::table('courses')->where('course_code','=', $cCode)->update(['drive_link'=>$link]);
+
+      return back()->with('success', 'Course Materials Link Set Successfully!!');
+    } else{
+      return back()->with('failure', 'Course Code or Drive Link Invalid!!');
+    }
   }
 }
