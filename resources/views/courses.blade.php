@@ -77,7 +77,7 @@
     </div>
 </div>
     @if(auth()->user()->role == 'tchr')
-      @include('add_course')
+      @include('layouts.add_course')
     @endif
   </div>
   @endsection
