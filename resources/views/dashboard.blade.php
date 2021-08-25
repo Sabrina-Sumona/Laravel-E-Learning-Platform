@@ -28,6 +28,10 @@
 
 @if(auth()->user()->role == 'tchr')
 @include('layouts.add_materials')
+
+@elseif(auth()->user()->role == 'std')
+@include('layouts.course_fees')
+
 @endif
-@include('layouts.user_info')
+
 @endsection

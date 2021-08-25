@@ -96,6 +96,7 @@
     </div>
   </div>
 </div>
+@include('layouts.user_info')
 @endsection
 
 @push('scripts')
