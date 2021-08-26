@@ -132,19 +132,28 @@ class CourseController extends Controller
     $joinInfo= Course::where('course_code','=', $cCode)->where('join_code', '=', $jCode)->first();
 
     if(isset($joinInfo) && $joinInfo!=null) {
-      $jstd = $joinInfo->joined_students;
-      $jstd_array = json_decode($jstd);
+      $jstd_id = $joinInfo->joined_students_id;
+      $jstd_id_array = json_decode($jstd_id);
 
-      if(in_array(auth()->user()->id, $jstd_array)) {
+      $jstd_name = $joinInfo->joined_students_name;
+      $jstd_name_array = json_decode($jstd_name);
+
+      if(in_array(auth()->user()->roll, $jstd_id_array)) {
 
         return redirect()->back()->with('warning', 'Joined Already!!');
 
       } else {
         $joinInfo->increment('total_students');
-        array_push($jstd_array, auth()->user()->id);
-        $jstd= json_encode($jstd_array);
 
-        DB::table('courses')->where('course_code','=', $cCode)->update(['joined_students'=>$jstd]);
+        array_push($jstd_id_array, auth()->user()->roll);
+        $jstd_id= json_encode($jstd_id_array);
+
+        DB::table('courses')->where('course_code','=', $cCode)->update(['joined_students_id'=>$jstd_id]);
+
+        array_push($jstd_name_array, auth()->user()->name);
+        $jstd_name= json_encode($jstd_name_array);
+
+        DB::table('courses')->where('course_code','=', $cCode)->update(['joined_students_name'=>$jstd_name]);
 
         $courseInfo= User::where('id','=', auth()->user()->id)->first();
 

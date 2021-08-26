@@ -17,8 +17,9 @@ class Course extends Model
           'course_teacher',
           'course_teacher_image',
           'join_code',
+          'joined_students_id',
+          'joined_students_name',
           'total_std',
-          'joined_students',
           'class_link',
           'drive_link',
        ];
