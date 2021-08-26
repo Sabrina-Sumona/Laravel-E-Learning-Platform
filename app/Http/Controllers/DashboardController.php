@@ -26,9 +26,13 @@ class DashboardController extends Controller
       $credit_hours = json_decode($credit_hours);
 
       $Total_credits = 0.0;
-      foreach($credit_hours as $credit_hour)
+
+      if($credit_hours!=null)
       {
-        $Total_credits = $Total_credits + $credit_hour;
+        foreach($credit_hours as $credit_hour)
+        {
+          $Total_credits = $Total_credits + $credit_hour;
+        }
       }
 
       return view('dashboard', compact('courses', 'Total_credits'));
@@ -112,9 +116,16 @@ class DashboardController extends Controller
     $setInfo= Course::where('course_code','=', $cCode)->first();
 
     if(isset($setInfo) && $setInfo!=null && isset($link) && $link!=null) {
-      DB::table('courses')->where('course_code','=', $cCode)->update(['drive_link'=>$link]);
+      $lecturer = DB::table('courses')->where('course_code','=', $cCode)->pluck('course_teacher');
+      if($lecturer[0] == auth()->user()->name)
+      {
+        DB::table('courses')->where('course_code','=', $cCode)->update(['drive_link'=>$link]);
 
-      return back()->with('success', 'Course Materials Link Set Successfully!!');
+        return back()->with('success', 'Course Materials Link Set Successfully!!');
+      }
+      else{
+        return back()->with('failure', 'This Course is Not Added by You!!');
+      }
     } else{
       return back()->with('failure', 'Course Code or Drive Link Invalid!!');
     }

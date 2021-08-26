@@ -16,26 +16,33 @@
       {{ session()->get('failure') }}
     </div>
     @endif
+
+    @if($courses!=null)
     @foreach($courses as $course)
     <div class="container col-md-4 mt-5">
-        <div class="category mb-30">
-          <div class="box">
-            <h5 class="colors1 mt-5 mb-2">{{$course}}</h5>
-            <hr class="colors1">
-            <form action="{{route('view_materials')}}" method="POST" target="_blank">
-                @csrf
-                <input value="{{$course}}" name="course" hidden>
-                <button type="submit" class="btn colors2 mb-4  mt-5">Course Materials</button>
-            </form>
-          </div>
+      <div class="category mb-30">
+        <div class="box">
+          <h5 class="colors1 mt-5 mb-2">{{$course}}</h5>
+          <hr class="colors1">
+          <form action="{{route('view_materials')}}" method="POST" target="_blank">
+            @csrf
+            <input value="{{$course}}" name="course" hidden>
+            <button type="submit" class="btn colors2 mb-4  mt-5">Course Materials</button>
+          </form>
         </div>
+      </div>
     </div>
     @endforeach
+    @else
+    @include('layouts.no_course')
+    @endif
   </div>
 </div>
 
 @if(auth()->user()->role == 'tchr')
+@if($courses!=null)
 @include('layouts.add_materials')
+@endif
 
 @elseif(auth()->user()->role == 'std')
 @include('layouts.course_fees')
