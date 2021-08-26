@@ -60,4 +60,6 @@ Route::group(['middleware'=> 'auth'], function(){
     Route::resource('/classroom', ClassroomController::class);
     Route::post('/classroom/set_class', 'ClassroomController@setClass')->name('set_class');
     Route::post('/classroom/enter_class', 'ClassroomController@enterClass')->name('enter_class');
+
+    Route::resource('/student_info', StudentController::class);
 });

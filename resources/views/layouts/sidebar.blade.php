@@ -26,6 +26,12 @@
           <i class='bx bx-desktop nav_icon'></i>
           <span class="nav_name">LMS</span>
         </a>
+        @if(auth()->user()->role == 'tchr')
+        <a href="{{route('student_info.index')}}" class="nav_link {{ request()->routeIs('student_info*') ? 'active' : '' }}">
+          <i class='bx bx-id-card nav_icon'></i>
+          <span class="nav_name">Students Info</span>
+        </a>
+        @endif
         <a href="#" class="nav_link">
           <i class='bx bx-bell nav_icon'></i>
           <span class="nav_name">Notices</span>
