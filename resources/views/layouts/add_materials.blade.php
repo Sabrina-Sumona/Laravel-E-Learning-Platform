@@ -6,11 +6,11 @@
         @csrf
         <div class="form-group">
           <label for='course_code'>Course Code</label>
-          <input type="text" class="form-control btn-block" id='course_code' name='course_code' placeholder='Enter the course code' required>
+          <input type="text" class="form-control btn-block" id='course_code' name='course_code' placeholder='Enter course code' required>
         </div>
         <div class="form-group">
           <label for='drive_link'>Drive Link</label>
-          <input type="text" class="form-control btn-block" id='drive_link' name='drive_link' placeholder='Enter the drive link' required>
+          <input type="text" class="form-control btn-block" id='drive_link' name='drive_link' placeholder='Enter drive link' required>
         </div>
         <button type="submit" class="btn btn-success mb-4 mt-4" style="float: right;">Add Materials</button>
       </form>

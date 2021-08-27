@@ -10,7 +10,7 @@
 
 .category .box {
     height: 280px;
-    padding: 30px 19px 25px 19px;
+    padding: 12px;
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     background: radial-gradient(#2774C4,#264462);

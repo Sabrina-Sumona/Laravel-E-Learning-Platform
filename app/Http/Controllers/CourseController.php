@@ -108,7 +108,7 @@ class CourseController extends Controller
     $course = $courseInfo->courses;
     $course_array = json_decode($course);
 
-    array_push($course_array, $cCode.": ".$cTitle." (".$cCredit." Credit)");
+    array_push($course_array, $cCode.": ".$cTitle);
     $course = json_encode($course_array);
 
     DB::table('users')->where('id','=', auth()->user()->id)->update(['courses'=>$course]);
@@ -163,7 +163,7 @@ class CourseController extends Controller
         $course = $courseInfo->courses;
         $course_array = json_decode($course);
 
-        array_push($course_array, $cCode.": ".$cTitle." (".$cCredit." Credit)");
+        array_push($course_array, $cCode.": ".$cTitle);
         $course = json_encode($course_array);
 
         DB::table('users')->where('id','=', auth()->user()->id)->update(['courses'=>$course]);
