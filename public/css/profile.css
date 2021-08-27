@@ -79,4 +79,8 @@ table{
   .line{
     display: block;
   }
+  .table-headings{
+    display: none;
+  }
+
 }

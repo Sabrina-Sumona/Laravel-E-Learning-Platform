@@ -8,46 +8,39 @@
       <div class="row">
         <table class="table table-responsive rounded border">
           <tbody>
-            <tr>
+            <tr class="table-headings">
               <th>Course codes:</th>
-              @for($index=0; $index<$length; $index++)
+              <th>Students ID:</th>
+              <th>Students Name:</th>
+            </tr>
+            @for($index=0; $index<$length; $index++)
+            <tr>
               <td>
-                <h6>
+                <h5>
                   {{$cCodes[$index]}}
-                </h6>
+                </h5>
               </td>
-              @endfor
-              </tr>
-              <tr>
-                <th>Students ID:</th>
-                @for($index=0; $index<$length; $index++)
               <td>
                 <h8>
                   @if($students_id[$index]!="[]")
-                  ID: {{$students_id[$index]}}
+                  {{$students_id[$index]}}
                   @else
                   No student
                   @endif
                 </h8>
               </td>
-              @endfor
-
-                          </tr>
-              <tr>
-                <th>Students Name:</th>
-                @for($index=0; $index<$length; $index++)
               <td>
                 <h8>
                   @if($students_name[$index]!="[]")
-                  Name: {{$students_name[$index]}}
+                  {{$students_name[$index]}}
                   @else
                   No student
                   @endif
                 </h8>
+                <hr class="line">
               </td>
-              @endfor
-              </tr>
-
+            </tr>
+            @endfor
           </tbody>
         </table>
       </div>
