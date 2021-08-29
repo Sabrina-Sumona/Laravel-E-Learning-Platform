@@ -20,25 +20,28 @@
                   {{$cCodes[$index]}}
                 </h5>
               </td>
+              @if($students_id[$index]!="[]")
               <td>
                 <h8>
-                  @if($students_id[$index]!="[]")
-                  {{$students_id[$index]}}
-                  @else
-                  No student
-                  @endif
+                  {!! str_replace(",","<br>",str_replace("]","",str_replace("[","",$students_id[$index])))!!}
                 </h8>
               </td>
-              <td>
+              @else
+              <td colspan="2">
                 <h8>
-                  @if($students_name[$index]!="[]")
-                  {{$students_name[$index]}}
-                  @else
-                  No student
-                  @endif
+                  No student has been joined yet!
                 </h8>
                 <hr class="line">
               </td>
+              @endif
+              @if($students_name[$index]!="[]")
+              <td>
+                <h8>
+                  {!! str_replace(",","<br>",str_replace("]","",str_replace("[","",str_replace('"','',$students_name[$index])))) !!}
+                </h8>
+                <hr class="line">
+              </td>
+              @endif
             </tr>
             @endfor
           </tbody>
