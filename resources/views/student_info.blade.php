@@ -2,9 +2,15 @@
 
 @section('center')
 <div class="container mt-5">
+  @if(session()->has('warning'))
+  <div class="alert alert-warning mt-5" style="text-align: center;">
+    {{ session()->get('warning') }}
+  </div>
+  @endif
   <div class="row">
+    @include('layouts.student_search')
     @if($length!=0)
-    <div class="container mt-5">
+    <div class="container">
       <div class="row">
         <table class="table table-responsive rounded border">
           <tbody>
@@ -49,20 +55,7 @@
       </div>
     </div>
     @else
-    <div class="container mt-5">
-      <div class="row">
-        <table class="table table-responsive rounded border">
-          <tbody>
-            <tr>
-              <th><h1><strong>You Don't Add Any Courses Yet</strong></h1></th>
-            </tr>
-            <tr>
-              <td>Please go to courses page and add some courses. Then the joined students info will be appeared here.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+    @include('layouts.no_course')
     @endif
   </div>
 </div>

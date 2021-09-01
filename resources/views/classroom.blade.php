@@ -15,6 +15,7 @@
     {{ session()->get('failure') }}
   </div>
   @endif
+  @if($courses!=null)
   <div class="container mt-5">
     <div class="row">
       <div class="col-md-8 mx-auto">
@@ -45,6 +46,9 @@
       </div>
     </div>
   </div>
+  @else
+  @include('layouts.no_course')
+  @endif
 </div>
 <div class="modal fade" id="setModal" tabindex="-1" aria-labelledby="setModalLabel" aria-hidden="true">
   <div class="modal-dialog">
