@@ -10,42 +10,39 @@
   <div class="row">
     @include('layouts.student_search')
     @if($length!=0)
-    <div class="container">
+    <div class="container col-md-8">
       <div class="row">
         <table class="table table-responsive rounded border">
           <tbody>
             <tr class="table-headings">
-              <th>Course codes:</th>
-              <th>Students ID:</th>
-              <th>Students Name:</th>
+              <th>Course Codes & Course Titles</th>
+              <th>Students ID & Name</th>
             </tr>
             @for($index=0; $index<$length; $index++)
             <tr>
               <td>
                 <h5>
-                  {{$cCodes[$index]}}
+                  {{$course_code[$index]}} :                   {{$course_title[$index]}}
                 </h5>
               </td>
-              @if($students_id[$index]!="[]")
-              <td>
-                <h8>
-                  {!! str_replace(",","<br>",str_replace("]","",str_replace("[","",$students_id[$index])))!!}
-                </h8>
+              @if($std[$index]!=0)
+              <td align="left">
+                <h6>
+                  @for($j=0; $j<$std[$index] ; $j++)
+                  <form method="POST" action="{{route('student_detail')}}">
+                    @csrf
+                    <div class="form-group">
+                      <input hidden id='std' name='std' value="{{$std_roll[$index][$j]}}">
+                    </div>
+                    <button type="submit" class="std_info">{{$std_roll[$index][$j]}} : {{$std_name[$index][$j]}}</button>
+                  </form>
+                  <br>
+                  @endfor
+                </h6>
               </td>
               @else
-              <td colspan="2">
-                <h8>
-                  No student has been joined yet!
-                </h8>
-                <hr class="line">
-              </td>
-              @endif
-              @if($students_name[$index]!="[]")
               <td>
-                <h8>
-                  {!! str_replace(",","<br>",str_replace("]","",str_replace("[","",str_replace('"','',$students_name[$index])))) !!}
-                </h8>
-                <hr class="line">
+                No Student have Joined Yet.
               </td>
               @endif
             </tr>

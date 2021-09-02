@@ -2,64 +2,70 @@
 
 @section('center')
 <div class="container mt-5">
-  <div class="container mt-5">
-    @if(count($errors) > 0)
-    @foreach($errors->all() as $error)
-    <div class="alert alert-danger">{{ $error }}</div>
-    @endforeach
-    @endif
-    <form action="{{route('profile.edit')}}" method="POST" enctype="multipart/form-data">
-      @csrf
-      <div class="text-center" onmouseover="showUploadButton();" onmouseout="hideUploadButton();">
-        <div class="form-group button-image">
-          <img class="img-circle" src="{{asset(Auth::user()->image?Auth::user()->image:'/images/no_user.png')}}">
-          <label onmouseover="showUploadButton();" class="btn btn-success image-upload" >
-            <input name="image" type="file" style="display: none;" required/> Upload
-          </label>
-          <br><br>
-        </div>
-        <div class="form-group">
-          <button class="image-upload btn btn-success" style="display: none;" type="submit">Save</button>
-        </div>
-      </div>
-    </form>
+  @if(count($errors) > 0)
+  @foreach($errors->all() as $error)
+  <div class="alert alert-danger">{{ $error }}</div>
+  @endforeach
+  @endif
+  <div class="row">
     <div class="container mt-5">
-      <div class="row">
-        <div class="col-md-8 mx-auto">
-          <table class="table table-responsive rounded border">
-            <tbody>
-              <tr>
-                <td><strong>User :</strong></td>
-                <td id="f_name">{{auth()->user()->uname}}</td>
-                <td>
-                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="setField('uname');">
-                    Edit
-                  </button>
-                  <hr class="line">
-                </td>
-              </tr>
-              <tr>
-                <td><strong>Mobile :</strong></td>
-                <td id="f_mobile">{{auth()->user()->mobile}}</td>
-                <td>
-                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="setField('mobile');">
-                    Edit
-                  </button>
-                  <hr class="line">
-                </td>
-              </tr>
-              <tr>
-                <td><strong>Email :</strong></td>
-                <td id="email">{{auth()->user()->email}}</td>
-                <td>
-                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="setField('email');">
-                    Edit
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+      <div class="col-md-8 mx-auto">
+        <table class="table table-responsive rounded border t-center">
+          <tbody>
+            <tr>
+              <th colspan="3"><h4 align="center"><strong> Update User Profile
+              </th>
+            </tr>
+            <tr>
+              <td colspan="3">
+                <form action="{{route('profile.edit')}}" method="POST" enctype="multipart/form-data">
+                  @csrf
+                  <div class="text-center" onmouseover="showUploadButton();" onmouseout="hideUploadButton();">
+                    <div class="form-group button-image">
+                      <img class="img-circle" src="{{asset(Auth::user()->image?Auth::user()->image:'/images/no_user.png')}}">
+                      <label onmouseover="showUploadButton();" class="btn btn-success image-upload" >
+                        <input name="image" type="file" style="display: none;" required/> Upload
+                      </label>
+                      <br><br>
+                    </div>
+                    <div class="form-group">
+                      <button class="image-upload btn btn-success" style="display: none;" type="submit">Save</button>
+                    </div>
+                  </div>
+                </form>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>User :</strong></td>
+              <td id="f_name">{{auth()->user()->uname}}</td>
+              <td>
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="setField('uname');">
+                  Edit
+                </button>
+                <hr class="line">
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Mobile :</strong></td>
+              <td id="f_mobile">{{auth()->user()->mobile}}</td>
+              <td>
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="setField('mobile');">
+                  Edit
+                </button>
+                <hr class="line">
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Email :</strong></td>
+              <td id="email">{{auth()->user()->email}}</td>
+              <td>
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="setField('email');">
+                  Edit
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
@@ -96,6 +102,7 @@
     </div>
   </div>
 </div>
+
 @include('layouts.user_info')
 @endsection
 

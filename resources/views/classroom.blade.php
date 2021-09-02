@@ -19,8 +19,9 @@
   <div class="container mt-5">
     <div class="row">
       <div class="col-md-8 mx-auto">
-        <table class="table table-responsive rounded border">
+        <table class="table table-responsive rounded border t-center">
           <tbody>
+            <th colspan="3"><h4 align="center"><strong>Class Join Links</strong></h4></th>
             @foreach($courses as $course)
             <tr>
               <td>{{$course}}</td>

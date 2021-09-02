@@ -1,5 +1,5 @@
-<div class="container mt-5">
-  <div class="row">
+<div class="container row mt-5">
+  <div class="container col-md-10">
     <table class="table table-responsive rounded border">
       <tbody>
         <tr>

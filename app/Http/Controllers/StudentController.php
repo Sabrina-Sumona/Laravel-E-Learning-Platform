@@ -17,42 +17,34 @@ class StudentController extends Controller
   */
   public function index()
   {
-    $courses = DB::table('courses')->pluck('course_code');
-
-    if(isset($courses) && $courses!=null)
+    $courses = Course::select('course_code','course_title','joined_students')->where('course_teacher','=', auth()->user()->name)->get();
+    $length = 0;
+    if(isset($courses) && $courses!="[]")
     {
-      $students_id = array();
-      $students_name = array();
-      $cCodes = array();
-      $length=0;
-
-      foreach($courses as $course)
-      {
-        $lecturer = DB::table('courses')->where('course_code','=', $course)->pluck('course_teacher');
-
-        if ($lecturer[0] == auth()->user()->name) {
-          $length++;
-
-          $cCodes[] = $course;
-
-          $joined_students_id = DB::table('courses')->where('course_code','=', $course)->pluck('joined_students_id');
-
-          foreach($joined_students_id as $joined_student_id)
-          {
-            $students_id[] = $joined_student_id;
-          }
-
-          $joined_students_name = DB::table('courses')->where('course_code','=', $course)->pluck('joined_students_name');
-
-          foreach($joined_students_name as $joined_student_name)
-          {
-            $students_name[] = $joined_student_name;
-          }
+      $length = count($courses);
+      for ($i=0; $i < $length ; $i++) {
+        $course_code[] = $courses[$i]->course_code;
+      }
+      for ($i=0; $i < $length ; $i++) {
+        $course_title[] = $courses[$i]->course_title;
+      }
+      for ($i=0; $i<$length ; $i++) {
+        $std_id = $courses[$i]->joined_students;
+        $std_id = json_decode($std_id);
+        $std[] = count($std_id);
+        for($j=0; $j<$std[$i] ; $j++)
+        {
+          $std_info = User::select(['name','roll'])->where('roll','=', $std_id[$j])->first();
+          $std_roll[$i][$j] = $std_info->roll;
+          $std_name[$i][$j] = $std_info->name;
         }
       }
-      return view('student_info', compact('length','cCodes','students_id','students_name'));
+
+      return view('student_info', compact('course_code','course_title','length','std_roll','std_name','std'));
     }
-    return view('student_info');
+    else {
+      return view('student_info', compact('length'));
+    }
   }
 
   /**

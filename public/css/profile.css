@@ -46,6 +46,19 @@ table{
   border-style: none !important;
 }
 
+.std_info{
+  color: yellow;
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+}
+
+.std_info:hover {
+    color: lightblue;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 .modal-header{
   background: radial-gradient(#2774C4,#264462);
   color: white;
@@ -68,7 +81,6 @@ table{
 @media only screen and (max-width: 600px){
   table, thead, tbody, th, td, tr {
     display: block;
-    text-align: center;
   }
   td {
     border-style: none !important;
@@ -82,5 +94,7 @@ table{
   .table-headings{
     display: none;
   }
-
+  .t-center{
+    text-align: center;
+  }
 }

@@ -18,8 +18,7 @@ class UpdateCoursesTable extends Migration
               $table->string('course_teacher_image');
               $table->float('credit_hours')->change();
               $table->string('join_code');
-              $table->json('joined_students_id')->nullable();
-              $table->json('joined_students_name')->nullable();
+              $table->json('joined_students')->nullable();
               $table->string('class_link')->nullable();
               $table->string('drive_link')->nullable();
           });
