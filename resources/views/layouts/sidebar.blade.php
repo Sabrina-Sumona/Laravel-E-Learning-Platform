@@ -1,3 +1,9 @@
+@php
+    \App\Models\User::where('id', auth()->user()->id)->update([
+        'last_login'=> now()
+    ]);
+@endphp
+
 <header class="header" id="header">
   <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
   <div class="header_img"> <img src="{{asset(Auth::user()->image?Auth::user()->image:'/images/no_user.png')}}" alt="user"></div>

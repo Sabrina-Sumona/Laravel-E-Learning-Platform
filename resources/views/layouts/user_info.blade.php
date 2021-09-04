@@ -16,7 +16,11 @@
               <li><strong>ID :</strong>  {{auth()->user()->roll}}</li>
               <li><strong>Phone :</strong>  {{auth()->user()->mobile}}</li>
               <li><strong>Email :</strong>  {{auth()->user()->email}}</li>
-              <li><strong>Role :</strong>  {{auth()->user()->role}}</li>
+              <li><strong>Role :</strong>
+                @if(auth()->user()->role=="tchr") Teacher
+                @elseif(auth()->user()->role=="std") Student
+                @endif
+              </li>
               <li><strong>Joined at :</strong>  {{date('d.m.Y', strtotime(auth()->user()->created_at))}}</li>
             </td>
           </tr>

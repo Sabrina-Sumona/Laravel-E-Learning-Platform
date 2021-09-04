@@ -88,9 +88,10 @@ class StudentDetailController extends Controller
   public function showDetail(Request $request)
   {
     $std = $request->get('std');
-    $std_info = User::select(['image','name','roll','mobile','email','created_at','courses','credit_hours'])->where('roll','=', $std)->first();
+    $std_info = User::select(['image','name','roll','mobile','email','created_at','courses','credit_hours','role'])->where('roll','=', $std)->first();
 
     if(isset($std_info) && $std_info!=null) {
+      $std_role = $std_info->role;
       $std_courses = $std_info->courses;
       $std_credits = $std_info->credit_hours;
 
@@ -109,7 +110,7 @@ class StudentDetailController extends Controller
         }
       }
 
-      return view('student_detail', compact('std_info','std_courses','std_credits','Total_credits','length'));
+      return view('student_detail', compact('std_info','std_role','std_courses','std_credits','Total_credits','length'));
     } else {
       return redirect()->back()->with('warning', 'Sorry! Student Not Found.');
     }

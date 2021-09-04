@@ -7,7 +7,7 @@
       <table class="table table-responsive rounded border">
         <tbody>
           <tr>
-            <th colspan="2"><h1>Student's Detail Info</h1></th>
+            <th colspan="2"><h1>{{$std_info->name}}'s Detail Info</h1></th>
           </tr>
           <tr>
             <td class="button-image col-md-4">
@@ -35,7 +35,11 @@
     </div>
   </div>
 </div>
+@if($std_info->role != 'tchr')
+@if(auth()->user()->role == 'tchr')
 <div class="row mt-4">
-@include('layouts.evaluations')
+  @include('layouts.evaluations')
 </div>
+@endif
+@endif
 @endsection

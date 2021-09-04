@@ -32,11 +32,18 @@ class StudentController extends Controller
         $std_id = $courses[$i]->joined_students;
         $std_id = json_decode($std_id);
         $std[] = count($std_id);
-        for($j=0; $j<$std[$i] ; $j++)
+        if($std_id != null)
         {
-          $std_info = User::select(['name','roll'])->where('roll','=', $std_id[$j])->first();
-          $std_roll[$i][$j] = $std_info->roll;
-          $std_name[$i][$j] = $std_info->name;
+          for($j=0; $j<$std[$i] ; $j++)
+          {
+            $std_info = User::select(['name','roll'])->where('roll','=', $std_id[$j])->first();
+            $std_roll[$i][$j] = $std_info->roll;
+            $std_name[$i][$j] = $std_info->name;
+          }
+        }
+        else {
+          $std_roll[][] = null;
+          $std_name[][] = null;
         }
       }
 

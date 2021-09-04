@@ -64,4 +64,11 @@ Route::group(['middleware'=> 'auth'], function(){
     Route::resource('/student_info', StudentController::class);
 
     Route::post('/student_detail', 'StudentDetailController@showDetail')->name('student_detail');
+
+    Route::get('/tasks', 'TaskController@index')->name('tasks');
+
+    Route::resource('/posts', PostController::class);
+
+    Route::post('update-likes', 'PostController@updateLikes')->name('updateLikes');
+    Route::post('save-comment', 'PostController@saveComment')->name('saveComment');
 });
