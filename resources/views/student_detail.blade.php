@@ -18,6 +18,11 @@
               <li><strong>ID :</strong>  {{$std_info->roll}}</li>
               <li><strong>Phone :</strong>  {{$std_info->mobile}}</li>
               <li><strong>Email :</strong>  {{$std_info->email}}</li>
+              <li><strong>Role :</strong>
+                @if($std_info->role=="tchr") Teacher
+                @elseif($std_info->role=="std") Student
+                @endif
+              </li>
               <li><strong>Joined at :</strong>  {{date('d.m.Y', strtotime($std_info->created_at))}}</li>
               <h4><strong>Courses</strong></h4>
               @if($std_courses!=null)
@@ -26,7 +31,7 @@
               @endfor
               <strong>Total Credit = {{$Total_credits}}</strong>
               @else
-              {{$std_info->name}} has not join any course yet.
+              {{$std_info->name}} has not added/joined any course yet.
               @endif
             </td>
           </tr>

@@ -52,6 +52,9 @@ table{
   background-color: transparent;
   border: none;
 }
+.std_info:focus{
+  outline: none;
+}
 
 .std_info:hover {
     color: lightblue;

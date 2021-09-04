@@ -1,5 +1,5 @@
 .post{
-    padding: 5px;
+    padding: 0px 10px 10px 10px;
 }
 
 .post-heading, .active-heading{
@@ -79,10 +79,15 @@
     background: rgba(255,0,0,0.06);
 }
 
-.chat-user a{
+.chat-user:hover{
+    background: rgba(255,0,0,0.2);
+}
+
+.chat-user button{
     line-height:28px;
     cursor: default;
     color: rgb(255,0,0);
+    cursor:pointer;
 }
 
 .chat-user:after {
@@ -99,15 +104,15 @@
 
 .chat-user.online a{
     color: #2d9a40;
-    cursor:pointer;
 }
-
+.chat-user.online button{
+  color: #2d9a40;
+}
 .chat-user.online{
     background: rgba(45, 154, 64, 0.06);
 }
 
 .chat-user.online:hover{
-    cursor:pointer;
     background: rgba(45, 154, 64, 0.2);
 }
 
@@ -118,4 +123,24 @@
 .chat-user img{
     width:30px;
     height:30px;
+}
+
+.active_info{
+  color: inherit;
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+}
+.active_info:focus{
+  outline: none;
+}
+
+.active-heading{
+  padding: 15px;
+}
+
+@media only screen and (max-width: 600px){
+  .actives{
+    padding: 0px 10px 10px 10px;
+  }
 }

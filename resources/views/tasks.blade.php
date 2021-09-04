@@ -89,13 +89,13 @@
                 <form method="POST" action="{{route('student_detail')}}">
                   @csrf
                   <input hidden id='std' name='std' value="{{$user->roll}}">
-                  <button type="submit" class="header_img pull-left m-1 std_info" href="javascript:void(0);">
-                    <img src="{{asset($user->image)}}" class="profile-picture-small pull-left"/>
+                  <button type="submit" class="header_img pull-left m-1 std_info">
+                    <img src="{{asset($user->image ? $user->image : '/images/no_user.png')}}" class="profile-picture-small pull-left"/>
                   </button>
                 </form>
                 @else
                 <a class="header_img pull-left m-1" href="{{route('profile.index')}}">
-                  <img src="{{asset(auth()->user()->image ?? '/images/no_user.jpg')}}" class="profile-picture-small pull-left"/>
+                  <img src="{{asset($user->image ? $user->image : '/images/no_user.png')}}" class="profile-picture-small pull-left"/>
                 </a>
                 @endif
               </div>
@@ -112,7 +112,7 @@
                 @csrf
                 <div class="col-sm-1 form-group">
                   <a class="header_img pull-left m-1" href="{{route('profile.index')}}">
-                    <img src="{{asset(auth()->user()->image ?? '/images/no_user.jpg')}}" class="profile-picture-small pull-left"/>
+                    <img src="{{asset(auth()->user()->image ? auth()->user()->image : '/images/no_user.png')}}" class="profile-picture-small pull-left"/>
                   </a>
                 </div>
                 <div class="col-sm-11">
