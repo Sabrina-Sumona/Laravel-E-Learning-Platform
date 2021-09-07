@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class TaskController extends Controller
 {
   public function index(){
-    $allPosts= Post::query()->get();
+    $allPosts= Post::query()->orderBy('id')->get();
 
     $posts= array();
     foreach($allPosts as $post){
