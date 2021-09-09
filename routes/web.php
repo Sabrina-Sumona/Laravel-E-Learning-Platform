@@ -42,6 +42,7 @@ Route::get('email/verify/{id}/{hash}', 'Auth\VerificationController@verify')->na
 Route::get('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
 
 Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('send', [App\Http\Controllers\HomeController::class,'sendNotification']);
 
 Route::group(['middleware'=> 'auth'], function(){
     Route::resource('/courses', CourseController::class);

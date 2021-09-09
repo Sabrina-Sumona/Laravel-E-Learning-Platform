@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use Notification;
+use App\Notifications\AlertNotification;
+
 class RegisterController extends Controller
 {
     /*
@@ -95,6 +98,9 @@ class RegisterController extends Controller
         $user= User::create($userInfo);
 
         Auth::loginUsingId($user->id);
+
+        $user = User::latest('id')->first();
+        Notification::send($user, new AlertNotification($user));
 
         return redirect()->route('courses.index');
       } else {
