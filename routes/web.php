@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome');
 
+Route::view('/password_mail', 'password_mail');
+
 // Auth::routes();
 
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -42,7 +44,6 @@ Route::get('email/verify/{id}/{hash}', 'Auth\VerificationController@verify')->na
 Route::get('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
 
 Route::get('/home', 'HomeController@index')->name('home');
-// Route::get('send', [App\Http\Controllers\HomeController::class,'sendNotification']);
 
 Route::group(['middleware'=> 'auth'], function(){
     Route::resource('/courses', CourseController::class);
@@ -72,4 +73,6 @@ Route::group(['middleware'=> 'auth'], function(){
 
     Route::post('update-likes', 'PostController@updateLikes')->name('updateLikes');
     Route::post('save-comment', 'PostController@saveComment')->name('saveComment');
+
+    Route::resource('/notices', NoticeController::class);    
 });

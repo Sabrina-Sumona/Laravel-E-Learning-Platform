@@ -7,6 +7,11 @@ use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use App\Models\Notice;
+
+use Notification;
+use App\Notifications\TaskNotification;
 
 class PostController extends Controller
 {
@@ -54,6 +59,16 @@ class PostController extends Controller
       'likes'=> json_encode(array()),
       'user_id'=> Auth::user()->id,
     ]);
+
+    Notice::insert([
+      'type'=> 'taskpost',
+      'data'=> Auth::user()->name.' has added a new post in Tasks Section of Happy Learning.'
+    ]);
+
+    $users = User::all();
+    foreach ($users as $user) {
+      Notification::send($user, new TaskNotification($user));
+    }
 
     return back();
   }

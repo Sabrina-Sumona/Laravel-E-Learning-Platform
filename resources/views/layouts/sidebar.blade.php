@@ -38,7 +38,7 @@
           <span class="nav_name">Students Info</span>
         </a>
         @endif
-        <a href="#" class="nav_link">
+        <a href="{{route('notices.index')}}" class="nav_link {{ request()->routeIs('notices*') ? 'active' : '' }} ">
           <i class='bx bx-bell nav_icon'></i>
           <span class="nav_name">Notices</span>
         </a>
