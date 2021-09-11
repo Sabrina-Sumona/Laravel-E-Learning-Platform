@@ -20,7 +20,7 @@ class TaskController extends Controller
         'likes'=> count(json_decode($post->likes)) ?? 0,
         'comments'=> $post->comments ?? 0,
         'user'=> User::find($post->user_id),
-        'created_at'=> date("F j, Y, g:i a", strtotime($post->created_at)),
+        'created_at'=> date('d.m.Y, g:i a', strtotime($post->created_at)),
       );
     }
 

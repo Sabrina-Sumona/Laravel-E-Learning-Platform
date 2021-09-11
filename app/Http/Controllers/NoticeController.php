@@ -15,6 +15,8 @@ class NoticeController extends Controller
       $notices[]= array(
         'type'=> $notice->type,
         'data'=> $notice->data,
+        'owner_image'=> $notice->owner_image,
+        'created_at'=> $notice->created_at,
       );
     }
 

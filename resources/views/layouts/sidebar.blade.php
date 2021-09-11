@@ -6,7 +6,11 @@
 
 <header class="header" id="header">
   <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
-  <div class="header_img"> <img src="{{asset(Auth::user()->image?Auth::user()->image:'/images/no_user.png')}}" alt="user"></div>
+  <div class="header_img">
+    <a href="{{route('profile.index')}}">
+      <img src="{{asset(Auth::user()->image?Auth::user()->image:'/images/no_user.png')}}" alt="user">
+    </a>
+  </div>
 </header>
 <div class="l-navbar" id="nav-bar">
   <nav class="nav">

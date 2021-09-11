@@ -44,7 +44,7 @@
 
 .post-date {
     color: #F7F6FB;
-    font-size: 12px;
+    font-size: 13px;
 }
 
 .post-user{
@@ -126,6 +126,7 @@
 }
 
 .active_info{
+  text-align: left;
   color: inherit;
   text-decoration: none;
   background-color: transparent;

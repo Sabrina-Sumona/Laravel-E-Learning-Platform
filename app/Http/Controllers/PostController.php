@@ -62,7 +62,8 @@ class PostController extends Controller
 
     Notice::insert([
       'type'=> 'taskpost',
-      'data'=> Auth::user()->name.' has added a new post in Tasks Section of Happy Learning.'
+      'data'=> Auth::user()->name.' has added a new post',
+      'owner_image' => Auth::user()->image,
     ]);
 
     $users = User::all();

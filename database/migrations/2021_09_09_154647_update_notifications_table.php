@@ -15,11 +15,10 @@ class UpdateNotificationsTable extends Migration
     {
       Schema::table('notices', function (Blueprint $table) {
         $table->after('type', function ($table){
+          $table->string('owner_image')->nullable();
           $table->string('notifiable_type')->nullable()->change();
           $table->int('notifiable_id')->nullable()->change();
-          $table->timestamp('read_at')->useCurrent()->change();
           $table->timestamp('created_at')->useCurrent()->change();
-          $table->timestamp('	updated_at')->useCurrent()->change();
           });
       });
     }

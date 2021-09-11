@@ -46,13 +46,25 @@
         <div class="post col-sm-12" id="post_{{$post['id']}}">
           <div class="row post-heading">
             <div class="col-sm-12 post-user">
-              <a href="{{route('profile.index')}}">
-                <img src="{{asset($post['user']->image)?? '/images/no_user.jpg'}}" class="header_img pull-left"/>
-                &nbsp;
+              @if($post['user']->name==auth()->user()->name)
+              <a href="{{route('profile.index')}}" class="active_info">
+                <img src="{{asset($post['user']->image ? $post['user']->image : '/images/no_user.png')}}" class="pull-left header_img"/>
                 <span class="post-user-name">{{$post['user']->name}}</span><br/>
                 &nbsp;
                 <small class="post-date">{{$post['created_at']}}</small>
               </a>
+              @else
+              <form method="POST" action="{{route('student_detail')}}">
+                @csrf
+                <input hidden id='std' name='std' value="{{$post['user']->roll}}">
+                <button type="submit" class="active_info">
+                  <img src="{{asset($post['user']->image ? $post['user']->image : '/images/no_user.png')}}" class="pull-left header_img"/>
+                  <span class="post-user-name">{{$post['user']->name}}</span><br/>
+                  &nbsp;
+                  <small class="post-date">{{$post['created_at']}}</small>
+                </button>
+              </form>
+              @endif
             </div>
           </div>
           <div class="row post-body">

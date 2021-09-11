@@ -15,11 +15,6 @@
     background: radial-gradient(#2774C4,#264462);
 }
 
-p.text-muted {
-    font-size: 0.98rem;
-    margin: 0
-}
-
 .notice {
     padding: 20px 3px;
     color: #264462;
