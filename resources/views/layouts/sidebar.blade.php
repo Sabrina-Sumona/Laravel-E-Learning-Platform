@@ -32,7 +32,7 @@
           <i class='bx bxs-user nav_icon'></i>
           <span class="nav_name">Profile</span>
         </a>
-        <a href="{{route('lms.index')}}" class="nav_link {{ request()->routeIs('lms*') ? 'active' : '' }} {{ request()->routeIs('classroom*') ? 'active' : '' }} {{ request()->routeIs('tasks*') ? 'active' : '' }} {{ request()->routeIs('exam*') ? 'active' : '' }}">
+        <a href="{{route('lms.index')}}" class="nav_link {{ request()->routeIs('lms*') ? 'active' : '' }} {{ request()->routeIs('classroom*') ? 'active' : '' }} {{ request()->routeIs('exam*') ? 'active' : '' }}">
           <i class='bx bx-desktop nav_icon'></i>
           <span class="nav_name">LMS</span>
         </a>
@@ -43,12 +43,12 @@
         </a>
         @endif
         <a href="{{route('notices.index')}}" class="nav_link {{ request()->routeIs('notices*') ? 'active' : '' }} ">
-          <i class='bx bx-bell nav_icon'></i>
+          <i class='bx bxs-bell nav_icon'></i>
           <span class="nav_name">Notices</span>
         </a>
-        <a href="#" class="nav_link">
-          <i class='bx bx-message-square-detail nav_icon'></i>
-          <span class="nav_name">Communication</span>
+        <a href="{{route('tasks')}}" class="nav_link {{ request()->routeIs('task*') ? 'active' : '' }} ">
+          <i class='bx bx-task nav_icon'></i>
+          <span class="nav_name">Task Discussion</span>
         </a>
       </div>
     </div>
