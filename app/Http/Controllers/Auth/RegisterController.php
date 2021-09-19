@@ -102,7 +102,7 @@ class RegisterController extends Controller
         $user = User::latest('id')->first();
         Notification::send($user, new AlertNotification($user));
 
-        return redirect()->route('courses.index');
+        return redirect()->route('dashboard.index');
       } else {
         return back()->with('failure', 'Password confirmation failed!!');
       }

@@ -20,16 +20,16 @@
         <span class="nav_logo-name">Happy Learning</span>
       </a>
       <div class="nav_list">
-        <a href="{{route('courses.index')}}" class="nav_link {{ request()->routeIs('courses*') ? 'active' : '' }}">
-          <i class='bx bx-book nav_icon'></i>
-          <span class="nav_name">Courses</span>
-        </a>
         <a href="{{route('dashboard.index')}}" class="nav_link {{ request()->routeIs('dashboard*') ? 'active' : '' }}">
-          <i class='bx bx-chart nav_icon'></i>
+          <i class='bx bxs-dashboard nav_icon'></i>
           <span class="nav_name">Dashboard</span>
         </a>
+        <a href="{{route('courses.index')}}" class="nav_link {{ request()->routeIs('courses*') ? 'active' : '' }}">
+          <i class='bx bxs-book nav_icon'></i>
+          <span class="nav_name">Courses</span>
+        </a>
         <a href="{{route('profile.index')}}" class="nav_link {{ request()->routeIs('profile*') ? 'active' : '' }}">
-          <i class='bx bx-user nav_icon'></i>
+          <i class='bx bxs-user nav_icon'></i>
           <span class="nav_name">Profile</span>
         </a>
         <a href="{{route('lms.index')}}" class="nav_link {{ request()->routeIs('lms*') ? 'active' : '' }} {{ request()->routeIs('classroom*') ? 'active' : '' }} {{ request()->routeIs('tasks*') ? 'active' : '' }} {{ request()->routeIs('exam*') ? 'active' : '' }}">
