@@ -7,6 +7,10 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+
+use Notification;
+use App\Notifications\ProfileUpdateNotification;
+
 class ProfileController extends Controller
 {
   /**
@@ -94,6 +98,9 @@ class ProfileController extends Controller
       User::where('id', $id)->update([
         $fieldName => $fieldVal
       ]);
+
+      $user = auth::user();
+      Notification::send($user, new ProfileUpdateNotification($user));
 
       return back()->with('success', 'Profile Updated Successfully!!');
     } else {

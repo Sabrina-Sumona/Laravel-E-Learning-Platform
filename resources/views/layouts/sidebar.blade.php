@@ -42,13 +42,13 @@
           <span class="nav_name">Students Info</span>
         </a>
         @endif
-        <a href="{{route('notices.index')}}" class="nav_link {{ request()->routeIs('notices*') ? 'active' : '' }} ">
-          <i class='bx bxs-bell nav_icon'></i>
-          <span class="nav_name">Notices</span>
-        </a>
         <a href="{{route('tasks')}}" class="nav_link {{ request()->routeIs('task*') ? 'active' : '' }} ">
           <i class='bx bx-task nav_icon'></i>
           <span class="nav_name">Task Discussion</span>
+        </a>
+        <a href="{{route('notices.index')}}" class="nav_link {{ request()->routeIs('notices*') ? 'active' : '' }} ">
+          <i class='bx bxs-bell nav_icon'></i>
+          <span class="nav_name">Notices</span>
         </a>
       </div>
     </div>

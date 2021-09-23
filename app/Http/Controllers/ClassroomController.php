@@ -22,7 +22,7 @@ class ClassroomController extends Controller
     $courses = $courseInfo->courses;
     $courses = json_decode($courses);
 
-    if(auth()->user()->role == 'std')
+    if(auth()->user()->role == 'std' &&   $courses!=null)
     {
       $credit_hours = $courseInfo->credit_hours;
       $credit_hours = json_decode($credit_hours);
