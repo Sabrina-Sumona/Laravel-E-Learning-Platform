@@ -16,11 +16,11 @@
   <nav class="nav">
     <div>
       <a href="{{route('home')}}" class="nav_logo">
-        <img src="images/logo.png" alt="logo"  width="30px" height="30px">
+        <img src="{{asset('/images/logo.png')}}" alt="logo"  width="30px" height="30px">
         <span class="nav_logo-name">Happy Learning</span>
       </a>
       <div class="nav_list">
-        <a href="{{route('dashboard.index')}}" class="nav_link {{ request()->routeIs('dashboard*') ? 'active' : '' }}">
+        <a href="{{route('dashboard.index')}}" class="nav_link {{ request()->routeIs('dashboard*') ? 'active' : '' }} {{ request()->routeIs('materials*') ? 'active' : '' }} {{ request()->routeIs('show_materials*') ? 'active' : '' }}">
           <i class='bx bxs-dashboard nav_icon'></i>
           <span class="nav_name">Dashboard</span>
         </a>

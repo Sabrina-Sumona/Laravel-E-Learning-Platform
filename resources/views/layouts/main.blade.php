@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Happy Learning</title>
-  <link rel="shortcut icon" type="images/png" href="images/logo.png" sizes="16x16">
+  <link rel="shortcut icon" type="images/png" href="{{asset('/images/logo.png')}}" sizes="16x16">
   <link rel="stylesheet" href="{{ url('/css/courses.css') }}">
   <link rel="stylesheet" href="{{ url('/css/sidebar.css') }}">
   <link rel="stylesheet" href="{{ url('/css/profile.css') }}">

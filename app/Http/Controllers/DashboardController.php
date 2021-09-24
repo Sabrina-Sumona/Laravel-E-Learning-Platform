@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Material;
 use App\Models\Course;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -109,40 +111,50 @@ class DashboardController extends Controller
     //
   }
 
+  public function showMaterials(Request $request) {
+    $course = $request->get('course');
+    return redirect()->route('showMaterials', compact('course'));
+  }
+
   public function addMaterials(Request $request) {
     $cCode= $request->has('course_code')?$request->get('course_code'):'';
-    $link= $request->has('drive_link')?$request->get('drive_link'):'';
-
     $setInfo= Course::where('course_code','=', $cCode)->first();
 
-    if(isset($setInfo) && $setInfo!=null && isset($link) && $link!=null) {
+    if(isset($setInfo) && $setInfo!=null){
       $lecturer = DB::table('courses')->where('course_code','=', $cCode)->pluck('course_teacher');
+
       if($lecturer[0] == auth()->user()->name)
       {
-        DB::table('courses')->where('course_code','=', $cCode)->update(['drive_link'=>$link]);
-
+        DB::table('materials')->insert([
+          'course_code' => $request->get('course_code') ?? '',
+          'course_teacher' => $request->get('course_teacher') ?? '',
+          'class_date' => $request->get('class_date') ?? '',
+          'drive_link' => $request->get('drive_link') ?? '',
+        ]);
         return back()->with('success', 'Course Materials Link Set Successfully!!');
       }
-      else{
+
+      else {
         return back()->with('failure', 'This Course is Not Added by You!!');
       }
+
     } else{
       return back()->with('failure', 'Course Code or Drive Link Invalid!!');
     }
   }
 
   public function viewMaterials(Request $request) {
-    $course = $request->get('course');
-    $cCode = substr($course, 0, strpos($course, ":"));
+    $cCode = $request->get('course');
+    $date = $request->get('date');
+    $date = date('Y-m-d', strtotime($date));
 
-    $enterInfo= Course::where('course_code','=', $cCode)->first();
-    if(isset($enterInfo) && $enterInfo!=null) {
-      $link = DB::table('courses')->where('course_code','=', $cCode)->pluck('drive_link');
-      if ($link[0]!=null) {
-        return redirect($link[0]);
-      } else{
-        return back()->with('warning', 'Materials Not Given Yet!');
-      }
+    $link = DB::table('materials')->where([['course_code','=', $cCode],['class_date', '=' , $date]])->pluck('drive_link');
+    // dd($link);
+    if ($link[0]!=null) {
+      return redirect($link[0]);
+    } else{
+      return back()->with('warning', 'Invalid Link!');
     }
   }
+
 }

@@ -54,8 +54,8 @@ Route::group(['middleware'=> 'auth'], function(){
     Route::post('/profile/edit', 'ProfileController@edit')->name('profile.edit');
 
     Route::resource('/dashboard', DashboardController::class);
-    Route::post('/dashboard/add_materials', 'DashboardController@addMaterials')->name('add_materials');
-    Route::post('/dashboard/view_materials', 'DashboardController@viewMaterials')->name('view_materials');
+    Route::post('/materials/add_materials', 'DashboardController@addMaterials')->name('add_materials');
+    Route::post('/materials/view_materials', 'DashboardController@viewMaterials')->name('view_materials');
 
     Route::resource('/lms', LmsController::class);
 
@@ -74,5 +74,8 @@ Route::group(['middleware'=> 'auth'], function(){
     Route::post('update-likes', 'PostController@updateLikes')->name('updateLikes');
     Route::post('save-comment', 'PostController@saveComment')->name('saveComment');
 
-    Route::resource('/notices', NoticeController::class);    
+    Route::resource('/notices', NoticeController::class);
+
+    Route::resource('/materials', MaterialController::class);
+    Route::post('/materials/show_materials', 'MaterialController@showMaterials')->name('show_materials');
 });

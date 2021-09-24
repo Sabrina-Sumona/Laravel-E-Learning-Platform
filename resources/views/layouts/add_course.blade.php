@@ -20,7 +20,7 @@
           <label for='join_code'>Join Code</label>
           <input type="text" class="form-control btn-block" id='join_code' name='join_code' placeholder='Enter join code' required>
         </div>
-        <input type="txt" value="{{auth()->user()->name}}" name='course_teacher' placeholder='course_teacher' hidden>
+        <input type="txt" value="{{auth()->user()->name}}" name='course_teacher' hidden>
         <input type="txt" value="{{auth()->user()->image}}" name='course_teacher_image' placeholder='course_teacher_image' hidden>
 
         <button type="submit" class="btn btn-success mb-4 mt-4" style="float: right;">Add Course</button>

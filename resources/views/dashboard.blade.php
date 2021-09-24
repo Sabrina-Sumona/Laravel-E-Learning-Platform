@@ -24,7 +24,7 @@
         <div class="box">
           <h5 class="colors1 mt-5 mb-2">{{$course}}</h5>
           <hr class="colors1">
-          <form action="{{route('view_materials')}}" method="POST" target="_blank">
+          <form action="{{route('show_materials')}}" method="POST">
             @csrf
             <input value="{{$course}}" name="course" hidden>
             <button type="submit" class="btn colors2 mb-4  mt-5">Course Materials</button>
@@ -40,13 +40,9 @@
 </div>
 
 @if(auth()->user()->role == 'tchr')
-@if($courses!=null)
 @include('layouts.add_materials')
-@endif
-
 @elseif(auth()->user()->role == 'std')
 @include('layouts.course_fees')
-
 @endif
 
 @endsection
