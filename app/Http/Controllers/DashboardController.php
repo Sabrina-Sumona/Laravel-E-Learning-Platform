@@ -18,31 +18,9 @@ class DashboardController extends Controller
   public function index()
   {
     $courseInfo= User::where('id','=', auth()->user()->id)->first();
-
     $courses = $courseInfo->courses;
     $courses = json_decode($courses);
-
-    if(auth()->user()->role == 'std')
-    {
-      $credit_hours = $courseInfo->credit_hours;
-      $credit_hours = json_decode($credit_hours);
-
-      $Total_credits = 0.0;
-
-      if($credit_hours!=null)
-      {
-        foreach($credit_hours as $credit_hour)
-        {
-          $Total_credits = $Total_credits + $credit_hour;
-        }
-      }
-
-      return view('dashboard', compact('courses', 'Total_credits'));
-    }
-    else{
-
-      return view('dashboard', compact('courses'));
-    }
+    return view('dashboard', compact('courses'));
   }
 
   /**

@@ -41,6 +41,11 @@
           <i class='bx bx-id-card nav_icon'></i>
           <span class="nav_name">Students Info</span>
         </a>
+        @elseif(auth()->user()->role == 'std')
+        <a href="{{route('payment.index')}}" class="nav_link {{ request()->routeIs('payment*') ? 'active' : '' }}">
+          <i class='bx bx-calculator nav_icon'></i>
+          <span class="nav_name">Payment</span>
+        </a>
         @endif
         <a href="{{route('tasks')}}" class="nav_link {{ request()->routeIs('task*') ? 'active' : '' }} ">
           <i class='bx bx-task nav_icon'></i>

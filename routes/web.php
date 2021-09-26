@@ -78,4 +78,6 @@ Route::group(['middleware'=> 'auth'], function(){
 
     Route::resource('/materials', MaterialController::class);
     Route::post('/materials/show_materials', 'MaterialController@showMaterials')->name('show_materials');
+
+    Route::resource('/payment', PaymentController::class);
 });
