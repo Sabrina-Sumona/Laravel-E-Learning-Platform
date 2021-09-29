@@ -14,7 +14,7 @@ class ExamController extends Controller
      */
     public function index()
     {
-        //
+        return view('examination');
     }
 
     /**
@@ -81,5 +81,20 @@ class ExamController extends Controller
     public function destroy(Exam $exam)
     {
         //
+    }
+
+    public function showAssignment()
+    {
+        return view('assignment');
+    }
+
+    public function showQuiz()
+    {
+        return view('quiz');
+    }
+
+    public function showWritten()
+    {
+        return view('written');
     }
 }

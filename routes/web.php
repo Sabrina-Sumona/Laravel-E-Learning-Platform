@@ -80,4 +80,9 @@ Route::group(['middleware'=> 'auth'], function(){
     Route::post('/materials/show_materials', 'MaterialController@showMaterials')->name('show_materials');
 
     Route::resource('/payment', PaymentController::class);
+
+    Route::resource('/examination', ExamController::class);
+    Route::get('/assignment', 'ExamController@showAssignment')->name('assignment');
+    Route::get('/quiz', 'ExamController@showQuiz')->name('quiz');
+    Route::get('/written', 'ExamController@showWritten')->name('written');
 });
