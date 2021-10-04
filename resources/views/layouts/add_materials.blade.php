@@ -6,7 +6,7 @@
         @csrf
         <div class="form-group">
           <label for='class_date'>Class Date</label>
-          <input type="date" class="form-control btn-block" id='class_date' name='class_date' placeholder='Enter class date' required>
+          <input type="date" class="form-control btn-block" id='class_date' name='class_date' required>
         </div>
         <div class="form-group">
           <label for='course_code'>Course Code</label>
