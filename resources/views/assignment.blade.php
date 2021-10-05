@@ -80,5 +80,7 @@
     </div>
   </div>
 </div>
-
+@if(auth()->user()->role == 'tchr')
+@include('layouts.add_assignments')
+@endif
 @endsection
