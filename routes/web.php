@@ -83,9 +83,14 @@ Route::group(['middleware'=> 'auth'], function(){
 
     Route::resource('/examination', ExamController::class);
     Route::post('/add_assignment', 'ExamController@addAssignment')->name('add_assignment');
+    Route::post('/add_question', 'ExamController@addQuestion')->name('add_question');
     Route::post('/give_marks', 'ExamController@giveMarks')->name('give_marks');
 
     Route::resource('/assignment', AssignmentController::class);
     Route::post('/submit_assignment', 'AssignmentController@submitAssignment')->name('submitAssignment');
     Route::get('/view_assignment', 'AssignmentController@viewAssignment')->name('viewAssignment');
+
+    Route::resource('/written', WrittenExamController::class);
+    Route::post('/submit_answers', 'WrittenExamController@submitAnswers')->name('submitAnswer');
+    Route::get('/view_answers', 'WrittenExamController@viewAnswer')->name('viewAnswer');
 });

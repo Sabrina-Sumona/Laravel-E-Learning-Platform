@@ -119,6 +119,7 @@ class ExamController extends Controller
       return back()->with('failure', 'Invalid Course Code!!');
     }
   }
+
   public function giveMarks(Request $request)
   {
     $mark= $request->has('mark')?$request->get('mark'):'';
@@ -128,7 +129,59 @@ class ExamController extends Controller
     DB::table('submitted_assignments')->where([['submitted_student',$std],['topic', $topic]])->update([
       'marks'=> $mark,
     ]);
+    DB::table('submitted_answers')->where([['submitted_student',$std],['topic', $topic]])->update([
+      'marks'=> $mark,
+    ]);
     return back()->with('success', 'Mark has Given Successfully!!');
   }
+
+  public function addQuestion(Request $request)
+  {
+    $request->validate([
+      'file' => 'required|mimes:pdf,doc,jpg,png,jpeg,txt|max:10000',
+    ]);
+
+    if($request->hasFile('file')){
+    $cCode= $request->get('course_code');
+    $topic= $request->get('exam_topic');
+    $setInfo= Course::where('course_code','=', $cCode)->first();
+
+    if(isset($setInfo) && $setInfo!=null){
+      $lecturer = DB::table('courses')->where('course_code','=', $cCode)->pluck('course_teacher');
+
+      if($lecturer[0] == auth()->user()->name)
+      {
+        $file=$request->file('file');
+        $extension=$file->getClientOriginalExtension();
+        $fileName=$cCode.' '.$topic.'.'.$extension;
+        $location='/files/'.Auth::user()->name. '/';
+
+        $file->move(public_path().$location, $fileName);
+        $ques_file=$location.$fileName;
+
+        DB::table('written_exams')->insert([
+          'course_code' => $request->get('course_code'),
+          'course_teacher' => $request->get('course_teacher'),
+          'exam_date' => $request->get('exam_date'),
+          'exam_start' => $request->get('exam_start'),
+          'exam_end' => $request->get('exam_end'),
+          'exam_topic' => $topic,
+          'question_no' => $request->get('question_no'),
+          'questions' => $ques_file,
+          'marks' => $request->get('marks')
+        ]);
+        return back()->with('success', 'New Exam Question Set Successfully!!');
+      }
+
+      else {
+        return back()->with('failure', 'This Course is Not Added by You!!');
+      }
+
+    } else{
+      return back()->with('failure', 'Invalid Course Code!!');
+    }
+  }
+
+}
 
 }
