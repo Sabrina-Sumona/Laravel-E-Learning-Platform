@@ -22,7 +22,7 @@
           <h5 class="colors1 mt-5 mb-2">Quiz</h5>
           <hr class="colors1">
           <span class="colors2 mb-4  mt-5">
-            <a href="{{route('assignment.index')}}">View Details</a>
+            <a href="{{route('quiz.index')}}">View Details</a>
           </span>
         </div>
       </div>

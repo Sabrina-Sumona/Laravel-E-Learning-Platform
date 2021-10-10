@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
-use App\Models\submitted_answer;
+use App\Models\Submitted_answer;
 use App\Models\Written_exam;
 use Illuminate\Http\Request;
 
@@ -104,7 +104,7 @@ class WrittenExamController extends Controller
     //
   }
 
-  public function submitAnswers(Request $request)
+  public function submitAnswer(Request $request)
   {
     $exam_start = $request->get('exam_start');
     $exam_end = $request->get('exam_end');

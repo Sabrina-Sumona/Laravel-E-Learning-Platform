@@ -84,13 +84,20 @@ Route::group(['middleware'=> 'auth'], function(){
     Route::resource('/examination', ExamController::class);
     Route::post('/add_assignment', 'ExamController@addAssignment')->name('add_assignment');
     Route::post('/add_question', 'ExamController@addQuestion')->name('add_question');
+    Route::post('/add_quiz', 'ExamController@addQuiz')->name('add_quiz');
     Route::post('/give_marks', 'ExamController@giveMarks')->name('give_marks');
+    Route::post('/set_marks', 'ExamController@setMarks')->name('set_marks');
 
     Route::resource('/assignment', AssignmentController::class);
     Route::post('/submit_assignment', 'AssignmentController@submitAssignment')->name('submitAssignment');
     Route::get('/view_assignment', 'AssignmentController@viewAssignment')->name('viewAssignment');
 
     Route::resource('/written', WrittenExamController::class);
-    Route::post('/submit_answers', 'WrittenExamController@submitAnswers')->name('submitAnswer');
-    Route::get('/view_answers', 'WrittenExamController@viewAnswer')->name('viewAnswer');
+    Route::post('/submit_answer', 'WrittenExamController@submitAnswer')->name('submitAnswer');
+    Route::get('/view_answer', 'WrittenExamController@viewAnswer')->name('viewAnswer');
+
+    Route::resource('/quiz', QuizController::class);
+    Route::post('/submit_quiz', 'QuizController@submitQuiz')->name('submitQuiz');
+    Route::get('/view_ques', 'QuizController@viewQuestion')->name('viewQues');
+    Route::get('/view_quiz', 'QuizController@viewQuiz')->name('viewQuiz');
 });
