@@ -8,7 +8,9 @@
         <div class="box">
           <h5 class="colors1 mt-5 mb-2">Classroom</h5>
           <hr class="colors1">
-          <span class="colors2 mb-4  mt-5"><a href="{{route('classroom.index')}}">View Details</a></span>
+          <span class="colors2 mb-4  mt-5">
+            <a href="{{route('classroom.index')}}">View Details</a>
+          </span>
         </div>
       </div>
     </div>
@@ -19,7 +21,9 @@
         <div class="box">
           <h5 class="colors1 mt-5 mb-2">Exams</h5>
           <hr class="colors1">
-          <span class="colors2 mb-4  mt-5"><a href="{{route('examination.index')}}">View Details</a></span>
+          <span class="colors2 mb-4  mt-5">
+            <a href="{{route('examination.index')}}">View Details</a>
+          </span>
         </div>
       </div>
     </div>
@@ -30,7 +34,9 @@
         <div class="box">
           <h5 class="colors1 mt-5 mb-2">Result</h5>
           <hr class="colors1">
-          <span class="colors2 mb-4  mt-5"><a href="{{route('tasks')}}">View Details</a></span>
+          <span class="colors2 mb-4  mt-5">
+            <a href="{{route('result.index')}}">View Details</a>
+          </span>
         </div>
       </div>
     </div>

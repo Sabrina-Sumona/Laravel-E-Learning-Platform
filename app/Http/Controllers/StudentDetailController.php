@@ -110,7 +110,15 @@ class StudentDetailController extends Controller
         }
       }
 
-      return view('student_detail', compact('std_info','std_role','std_courses','std_credits','Total_credits','length'));
+      $std = $std_info->roll.' : '.$std_info->name;
+
+      $assignmentResults = DB::select("SELECT  `topic`,`submitted_student`,`marks` FROM `Submitted_assignments`   WHERE `submitted_student` = '$std'");
+
+      $quizResults = DB::select("SELECT  `topic`,`marks` FROM `Submitted_quizzes`   WHERE `submitted_student` = '$std'");
+
+      $writtenResults = DB::select("SELECT  `topic`,`marks` FROM `Submitted_answers`   WHERE `submitted_student` = '$std'");
+
+      return view('student_detail', compact('std_info','std_role','std_courses','std_credits','Total_credits','length','assignmentResults','quizResults','writtenResults'));
     } else {
       return redirect()->back()->with('warning', 'Sorry! Student Not Found.');
     }

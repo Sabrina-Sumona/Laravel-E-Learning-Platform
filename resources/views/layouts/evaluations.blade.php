@@ -1,18 +1,39 @@
-<div class="container-fluid col-md-8">
+<div class="container-fluid col-md-7">
   <table class="table table-responsive rounded border t-center">
     <tbody>
       <tr>
-        <th colspan="4"><h1 align="center">Student's Evaluation</h1></th>
+        <th colspan="3"><h1 align="center">Student's Evaluation</h1></th>
       </tr>
       <tr>
-        <th>CT</th>
-        <th>Assignments</th>
-        <th>Mid-term</th>
-        <th>Final</th>
+        <th>Examinations</th>
+        <th>Marks</th>
       </tr>
+      @foreach($assignmentResults as $assignmentResult)
       <tr>
-        <td colspan="4" align="center">{{$std_info->name}} has not attend any test yet.</td>
+        <td>{{$assignmentResult->topic}}</td>
+        @if($assignmentResult->marks==null)
+        <td>N/A</td>
+        @else
+        <td>{{$assignmentResult->marks}} marks</td>
+        @endif
       </tr>
+      @endforeach
+      @foreach($quizResults as $quizResult)
+      <tr>
+        <td>{{$quizResult->topic}}</td>
+        <td>{{$quizResult->marks}} marks</td>
+      </tr>
+      @endforeach
+      @foreach($writtenResults as $writtenResult)
+      <tr>
+        <td>{{$writtenResult->topic}}</td>
+        @if($writtenResult->marks==null)
+        <td>N/A</td>
+        @else
+        <td>{{$writtenResult->marks}} marks</td>
+        @endif
+      </tr>
+      @endforeach
     </tbody>
   </table>
 </div>
