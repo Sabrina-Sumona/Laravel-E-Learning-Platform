@@ -34,7 +34,7 @@
             <input type="time" class="form-control btn-block" id='quiz_end' name='quiz_end' required>
           </div>
         </div>
-        @for ($i = 0; $i < 10; $i++)
+        @for ($i = 0; $i < 20; $i++)
         <hr>
         <div class="row">
           <div class="form-group col-2">

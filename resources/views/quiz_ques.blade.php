@@ -27,11 +27,11 @@
           <h2 class="my-4 heading text-center">{{$cCode}}: {{$topic}}</h2>
           <form method="POST" action="{{route('submitQuiz')}}">
             @csrf
-            @for($i = 0; $i < 10; $i++)
+            @for($i = 0; $i < 20; $i++)
             <hr>
             <div class="row">
               <div class="form-group">
-                <h5>{{$questions[$i]}}</h5>
+                <h5>{{$i+1}}. {{$questions[$i]}}</h5>
                 @if(auth()->user()->role == 'tchr')
                 <p>Correct answer: {{$answer[$i]}}</p>
                 @endif

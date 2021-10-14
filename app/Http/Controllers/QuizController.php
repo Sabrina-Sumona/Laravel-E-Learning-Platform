@@ -120,13 +120,14 @@ class QuizController extends Controller
       $answer = $quizInfo->answer;
       $answer = json_decode($answer);
       $mark = 0;
-      for ($i=0; $i < 10; $i++) {
+      for ($i=0; $i < 20; $i++) {
         $submission[] = $request->input('ans'.$i);
         if($submission[$i] == $answer[$i])
         {
           $mark++;
         }
       }
+      $mark=$mark/2;
       $submitted_students = $quizInfo->submitted_students;
       $submitted_students_array = json_decode($submitted_students);
 
