@@ -100,6 +100,7 @@ Route::group(['middleware'=> 'auth'], function(){
     Route::post('/submit_quiz', 'QuizController@submitQuiz')->name('submitQuiz');
     Route::get('/view_ques', 'QuizController@viewQuestion')->name('viewQues');
     Route::get('/view_quiz', 'QuizController@viewQuiz')->name('viewQuiz');
+    Route::get('/self_assessment', 'QuizController@takeSelfAssessment')->name('self_assessment');
 
     Route::resource('/result', ResultController::class);
 });

@@ -38,6 +38,28 @@ class QuizController extends Controller
     }
   }
 
+  public function takeSelfAssessment()
+  {
+    $quizzes = Quiz::query()->orderBy('created_at', 'DESC')->get();
+
+    $courseInfo= User::where('id','=', auth()->user()->id)->first();
+    $courses = $courseInfo->courses;
+    $courses = json_decode($courses);
+    foreach ($courses as $course) {
+      $cCode = substr($course, 0, strpos($course, ":"));
+      $cCodes[]=$cCode;
+    }
+    if($courses!=null)
+    {
+      return view('self_assessment', compact('quizzes', 'cCodes'));
+    }
+    else
+    {
+      $quizzes = null;
+      return view('self_assessment', compact('quizzes'));
+    }
+  }
+
   /**
   * Show the form for creating a new resource.
   *
@@ -114,9 +136,51 @@ class QuizController extends Controller
     $quiz_start = $quizInfo->quiz_start;
     $quiz_end = $quizInfo->quiz_end;
     $quiz_date = $quizInfo->quiz_date;
-
-    if(date('g:i a',strtotime($quiz_start))<=date("g:i a") && date('g:i a',strtotime($quiz_end))>=date("g:i a") && date('F j, Y (D)',strtotime($quiz_date))<=date("F j, Y (D)"))
+    if(substr($topic, 0, strpos($topic, " ")) == "Quiz" )
     {
+      if(date('g:i a',strtotime($quiz_start))<=date("g:i a") && date('g:i a',strtotime($quiz_end))>=date("g:i a") && date('F j, Y (D)',strtotime($quiz_date))<=date("F j, Y (D)"))
+      {
+        $answer = $quizInfo->answer;
+        $answer = json_decode($answer);
+        $mark = 0;
+        for ($i=0; $i < 20; $i++) {
+          $submission[] = $request->input('ans'.$i);
+          if($submission[$i] == $answer[$i])
+          {
+            $mark++;
+          }
+        }
+        $mark=$mark/2;
+        $submitted_students = $quizInfo->submitted_students;
+        $submitted_students_array = json_decode($submitted_students);
+
+        if(in_array(auth()->user()->roll, $submitted_students_array)) {
+
+          return redirect()->back()->with('warning', 'Submitted Already!!');
+
+        } else {
+          $quizInfo->increment('total_students');
+
+          array_push($submitted_students_array, auth()->user()->roll);
+          $submitted_students= json_encode($submitted_students_array);
+
+          DB::table('quizzes')->where([['course_code',$cCode],['quiz_topic', $topic]])->update([
+            'submitted_students'=> $submitted_students,
+          ]);
+
+          DB::table('submitted_quizzes')->insert([
+            'topic' => $cCode.": ".$topic,
+            'submitted_student' => auth()->user()->roll." : ".auth()->user()->name,
+            'marks' => $mark,
+          ]);
+          return redirect()->route('quiz.index')->with('success', 'Quiz Submitted Successfully!!');
+        }
+      }
+      else {
+        return redirect()->route('quiz.index')->with('warning', 'Exam Timeout!!');
+      }
+    }
+    else {
       $answer = $quizInfo->answer;
       $answer = json_decode($answer);
       $mark = 0;
@@ -131,30 +195,21 @@ class QuizController extends Controller
       $submitted_students = $quizInfo->submitted_students;
       $submitted_students_array = json_decode($submitted_students);
 
-      if(in_array(auth()->user()->roll, $submitted_students_array)) {
+      $quizInfo->increment('total_students');
 
-        return redirect()->back()->with('warning', 'Submitted Already!!');
+      array_push($submitted_students_array, auth()->user()->roll);
+      $submitted_students= json_encode($submitted_students_array);
 
-      } else {
-        $quizInfo->increment('total_students');
+      DB::table('quizzes')->where([['course_code',$cCode],['quiz_topic', $topic]])->update([
+        'submitted_students'=> $submitted_students,
+      ]);
 
-        array_push($submitted_students_array, auth()->user()->roll);
-        $submitted_students= json_encode($submitted_students_array);
-
-        DB::table('quizzes')->where([['course_code',$cCode],['quiz_topic', $topic]])->update([
-          'submitted_students'=> $submitted_students,
-        ]);
-
-        DB::table('submitted_quizzes')->insert([
-          'topic' => $cCode.": ".$topic,
-          'submitted_student' => auth()->user()->roll." : ".auth()->user()->name,
-          'marks' => $mark,
-        ]);
-        return redirect()->route('quiz.index')->with('success', 'Quiz Submitted Successfully!!');
-      }
-    }
-    else {
-      return redirect()->route('quiz.index')->with('warning', 'Exam Timeout!!');
+      DB::table('submitted_quizzes')->insert([
+        'topic' => $cCode.": ".$topic,
+        'submitted_student' => auth()->user()->roll." : ".auth()->user()->name,
+        'marks' => $mark,
+      ]);
+      return redirect()->route('self_assessment')->with('success', 'Quiz Submitted Successfully!!');
     }
   }
 

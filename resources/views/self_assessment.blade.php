@@ -30,7 +30,7 @@
               <th colspan="6">
                 <h4 align="center">
                   <strong>
-                    Quizzes & MCQs
+                    Self Assessments
                   </strong>
                 </h4>
               </th>
@@ -38,14 +38,13 @@
                 <th>Course code</th>
                 <th>Topics</th>
                 <th>Questions</th>
-                <th>Quiz Dates</th>
                 @if(auth()->user()->role == 'tchr')
                 <th>Submissions</th>
                 @endif
               </tr>
               @foreach($quizzes as $quiz)
               @if(in_array($quiz->course_code,$cCodes))
-              @if(substr($quiz->quiz_topic, 0, strpos($quiz->quiz_topic, " ")) == "Quiz" )
+              @if(substr($quiz->quiz_topic, 0, strpos($quiz->quiz_topic, " ")) == "Self" )
               <tr>
                 <td>{{$quiz->course_code}}</td>
                 <td><strong>{{$quiz->quiz_topic}}</strong><br>{{$quiz->marks}} marks</td>
@@ -58,7 +57,6 @@
                     <button type="submit" class="btn btn-primary" >View</button>
                   </form>
                   @elseif(auth()->user()->role == 'std')
-                  @if(date('g:i a',strtotime($quiz->quiz_start))<=date("g:i a") && date('g:i a',strtotime($quiz->quiz_end))>=date("g:i a") && date('F j, Y (D)',strtotime($quiz->quiz_date))<=date("F j, Y (D)"))
                   <form action="{{route('viewQues')}}" method="get">
                     @csrf
                     <input value="{{$quiz->course_code}}" name="cCode" hidden>
@@ -66,11 +64,7 @@
                     <button type="submit" class="btn btn-primary" >View</button>
                   </form>
                   @endif
-                  @endif
                 </td>
-                <td>{{date('F j, Y (D)',strtotime($quiz->quiz_date))}}
-                  <br>
-                {{date('g:i a',strtotime($quiz->quiz_start))}} - {{date('g:i a',strtotime($quiz->quiz_end))}}</td>
                 @if(auth()->user()->role == 'tchr')
                 <td>
                   <form action="{{route('viewQuiz')}}" method="get">
@@ -95,6 +89,6 @@
   </div>
 </div>
 @if(auth()->user()->role == 'tchr')
-@include('layouts.add_quizzes')
+@include('layouts.add_assessments')
 @endif
 @endsection

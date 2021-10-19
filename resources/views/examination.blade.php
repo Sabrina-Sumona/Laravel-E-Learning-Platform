@@ -41,5 +41,18 @@
       </div>
     </div>
   </div>
+  <div class="container col-md-4 mt-5">
+    <div class="container mt-5">
+      <div class="category mb-30">
+        <div class="box">
+          <h5 class="colors1 mt-5 mb-2">Self Assessment</h5>
+          <hr class="colors1">
+          <span class="colors2 mb-4  mt-5">
+            <a href="{{route('self_assessment')}}">View Details</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 @endsection

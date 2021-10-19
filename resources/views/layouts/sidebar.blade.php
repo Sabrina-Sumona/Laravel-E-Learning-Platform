@@ -32,7 +32,7 @@
           <i class='bx bxs-user nav_icon'></i>
           <span class="nav_name">Profile</span>
         </a>
-        <a href="{{route('lms.index')}}" class="nav_link {{ request()->routeIs('lms*') ? 'active' : '' }} {{ request()->routeIs('classroom*') ? 'active' : '' }} {{ request()->routeIs('examination*') ? 'active' : '' }} {{ request()->routeIs('assignment*') ? 'active' : '' }} {{ request()->routeIs('viewAssignment*') ? 'active' : '' }} {{ request()->routeIs('quiz*') ? 'active' : '' }} {{ request()->routeIs('viewQuiz*') ? 'active' : '' }} {{ request()->routeIs('viewQues*') ? 'active' : '' }} {{ request()->routeIs('written*') ? 'active' : '' }} {{ request()->routeIs('viewAnswer*') ? 'active' : '' }} {{ request()->routeIs('result*') ? 'active' : '' }}">
+        <a href="{{route('lms.index')}}" class="nav_link {{ request()->routeIs('lms*') ? 'active' : '' }} {{ request()->routeIs('classroom*') ? 'active' : '' }} {{ request()->routeIs('examination*') ? 'active' : '' }} {{ request()->routeIs('assignment*') ? 'active' : '' }} {{ request()->routeIs('viewAssignment*') ? 'active' : '' }} {{ request()->routeIs('quiz*') ? 'active' : '' }} {{ request()->routeIs('viewQuiz*') ? 'active' : '' }} {{ request()->routeIs('viewQues*') ? 'active' : '' }} {{ request()->routeIs('written*') ? 'active' : '' }} {{ request()->routeIs('viewAnswer*') ? 'active' : '' }} {{ request()->routeIs('result*') ? 'active' : '' }} {{ request()->routeIs('self_assessment*') ? 'active' : '' }}">
           <i class='bx bx-desktop nav_icon'></i>
           <span class="nav_name">LMS</span>
         </a>
