@@ -16,29 +16,7 @@
             @endif
             <th>Marks</th>
           </tr>
-          @foreach($assignmentResults as $assignmentResult)
-          <tr>
-            <td>{{$assignmentResult->topic}}</td>
-            @if(auth()->user()->role == 'tchr')
-            <td>{{$assignmentResult->submitted_student}}</td>
-            @endif
-            @if($assignmentResult->marks==null)
-            <td>N/A</td>
-            @else
-            <td>{{$assignmentResult->marks}} marks</td>
-            @endif
-          </tr>
-          @endforeach
-          @foreach($quizResults as $quizResult)
-          <tr>
-            <td>{{$quizResult->topic}}</td>
-            @if(auth()->user()->role == 'tchr')
-            <td>{{$quizResult->submitted_student}}</td>
-            @endif
-            <td>{{$quizResult->marks}} marks</td>
-          </tr>
-          @endforeach
-          @foreach($writtenResults as $writtenResult)
+          @foreach(array_reverse($writtenResults) as $writtenResult)
           <tr>
             <td>{{$writtenResult->topic}}</td>
             @if(auth()->user()->role == 'tchr')
@@ -48,6 +26,28 @@
             <td>N/A</td>
             @else
             <td>{{$writtenResult->marks}} marks</td>
+            @endif
+          </tr>
+          @endforeach
+          @foreach(array_reverse($quizResults) as $quizResult)
+          <tr>
+            <td>{{$quizResult->topic}}</td>
+            @if(auth()->user()->role == 'tchr')
+            <td>{{$quizResult->submitted_student}}</td>
+            @endif
+            <td>{{$quizResult->marks}} marks</td>
+          </tr>
+          @endforeach
+          @foreach(array_reverse($assignmentResults) as $assignmentResult)
+          <tr>
+            <td>{{$assignmentResult->topic}}</td>
+            @if(auth()->user()->role == 'tchr')
+            <td>{{$assignmentResult->submitted_student}}</td>
+            @endif
+            @if($assignmentResult->marks==null)
+            <td>N/A</td>
+            @else
+            <td>{{$assignmentResult->marks}} marks</td>
             @endif
           </tr>
           @endforeach
