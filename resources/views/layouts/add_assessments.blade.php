@@ -23,22 +23,22 @@
         <div class="row">
           <div class="form-group col-2">
             <label for='question_no[i]'>Question no.</label>
-            <input type="number" class="form-control btn-block" id='question_no[]' name='question_no[]'>
+            <input type="number" class="form-control btn-block" id='question_no[]' name='question_no[]' required>
           </div>
           <div class="form-group col-7">
             <label for='question[i]'>Question</label>
-            <textarea class="form-control btn-block" id='question[]' name='question[]'></textarea>
+            <textarea class="form-control btn-block" id='question[]' name='question[]' required></textarea>
           </div>
           <div class="form-group col-3">
             <label for='answer[i]'>Answer</label>
-            <input type="text" class="form-control btn-block" id='answer[]' name='answer[]'>
+            <input type="text" class="form-control btn-block" id='answer[]' name='answer[]' required>
           </div>
         </div>
         <div class="row">
           @for ($j = 0; $j < 4; $j++)
           <div class="form-group col-3">
             <label for='option[][]'>Option {{$j+1}}</label>
-            <input type="text" class="form-control btn-block" id='option[][]' name='option[][]'>
+            <input type="text" class="form-control btn-block" id='option[][]' name='option[][]' required>
           </div>
           @endfor
         </div>

@@ -21,17 +21,17 @@
           </div>
           <div class="form-group col-6">
             <label for='quiz_date'>Quiz Date</label>
-            <input type="date" class="form-control btn-block" id='quiz_date' name='quiz_date'>
+            <input type="date" class="form-control btn-block" id='quiz_date' name='quiz_date' required>
           </div>
         </div>
         <div class="row">
           <div class="form-group col-6">
             <label for='quiz_start'>Quiz Start</label>
-            <input type="time" class="form-control btn-block" id='quiz_start' name='quiz_start'>
+            <input type="time" class="form-control btn-block" id='quiz_start' name='quiz_start' required>
           </div>
           <div class="form-group col-6">
             <label for='quiz_end'>Quiz End</label>
-            <input type="time" class="form-control btn-block" id='quiz_end' name='quiz_end'>
+            <input type="time" class="form-control btn-block" id='quiz_end' name='quiz_end' required>
           </div>
         </div>
         @for ($i = 0; $i < 20; $i++)
@@ -39,22 +39,22 @@
         <div class="row">
           <div class="form-group col-2">
             <label for='question_no[i]'>Question no.</label>
-            <input type="number" class="form-control btn-block" id='question_no[]' name='question_no[]'>
+            <input type="number" class="form-control btn-block" id='question_no[]' name='question_no[]' required>
           </div>
           <div class="form-group col-7">
             <label for='question[i]'>Question</label>
-            <textarea class="form-control btn-block" id='question[]' name='question[]'></textarea>
+            <textarea class="form-control btn-block" id='question[]' name='question[]' required></textarea>
           </div>
           <div class="form-group col-3">
             <label for='answer[i]'>Answer</label>
-            <input type="text" class="form-control btn-block" id='answer[]' name='answer[]'>
+            <input type="text" class="form-control btn-block" id='answer[]' name='answer[]' required>
           </div>
         </div>
         <div class="row">
           @for ($j = 0; $j < 4; $j++)
           <div class="form-group col-3">
             <label for='option[][]'>Option {{$j+1}}</label>
-            <input type="text" class="form-control btn-block" id='option[][]' name='option[][]'>
+            <input type="text" class="form-control btn-block" id='option[][]' name='option[][]' required>
           </div>
           @endfor
         </div>
